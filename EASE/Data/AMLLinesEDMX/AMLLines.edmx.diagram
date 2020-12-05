@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72b6d2ccfd1d4b51808bebb3b238fce7" Name="Diagram1" DisplayType="true" ZoomLevel="72">
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_Andon" Width="1.875" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_Andon_IndexLog" Width="2" PointX="5.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_ANDON_Stations" Width="2.375" PointX="2.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_LineStatus" Width="2.25" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_PLC_BuildList" Width="2.25" PointX="7.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_PLCStatus" Width="1.875" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_LINESTATUS_BODYSHOP" Width="2.375" PointX="3.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.AML_PLC_BuildList_LOG" Width="2.125" PointX="9.625" PointY="0.75" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.LINE" Width="2" PointX="8.875" PointY="3.5" />
+        <EntityTypeShape EntityType="AML_PROD_20180726Model.STATION" Width="2.125" PointX="11.125" PointY="3.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

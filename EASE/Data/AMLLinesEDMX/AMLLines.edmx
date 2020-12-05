@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AML_PROD_20180726Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AML_Andon">
+          <Key>
+            <PropertyRef Name="LineID" />
+          </Key>
+          <Property Name="LineID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="TimeSeconds" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="LineStatus" Type="decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="ReadStatus" Type="decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="AML_Andon_IndexLog">
+          <Key>
+            <PropertyRef Name="Keyx" />
+          </Key>
+          <Property Name="Keyx" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="Datex" Type="datetime" />
+          <Property Name="LineID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="StationNO" Type="varchar" MaxLength="12" />
+          <Property Name="Spare1" Type="varchar" MaxLength="20" />
+          <Property Name="Spare2" Type="varchar" MaxLength="20" />
+          <Property Name="Spare3" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AML_ANDON_Stations">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="STATIONNO" />
+          </Key>
+          <Property Name="LINEID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="STATIONNO" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="TIMESECONDS" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="LASTUPDATED" Type="datetime" Nullable="false" />
+          <Property Name="READSTATUS" Type="int" />
+          <Property Name="LINESTATUS" Type="int" />
+        </EntityType>
+        <EntityType Name="AML_LineStatus">
+          <Key>
+            <PropertyRef Name="LineID" />
+            <PropertyRef Name="StationNO" />
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="LineID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="StationNO" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="BuildNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EngineMoveDate" Type="datetime" />
+          <Property Name="IPCStatus" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="AndonCALL" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="ReadStatus" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AML_PROD_20180726.dbo.AML_LINESTATUS_BODYSHOP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AML_LINESTATUS_BODYSHOP">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="STATIONNO" />
+            <PropertyRef Name="BUILDNO" />
+          </Key>
+          <Property Name="LINEID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="STATIONNO" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="BUILDNO" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="ENGINEMOVEDATE" Type="datetime" />
+          <Property Name="IPCSTATUS" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="ANDONCALL" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="READSTATUS" Type="int" />
+          <Property Name="PLATTENID" Type="decimal" Precision="4" Scale="0" />
+          <Property Name="TAKTTIMESECONDS" Type="decimal" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="AML_PLC_BuildList">
+          <Key>
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="LineID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="BuildNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="EASERead" Type="decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="AML_PLC_BuildList_LOG">
+          <Key>
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="BuildNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CompleteTime" Type="datetime" Nullable="false" />
+          <Property Name="LogDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AML_PLCStatus">
+          <Key>
+            <PropertyRef Name="StationNo" />
+          </Key>
+          <Property Name="LineID" Type="int" />
+          <Property Name="StationNo" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="AndonCall" Type="int" />
+          <Property Name="ReadStatus" Type="int" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LINES">
+          <Key>
+            <PropertyRef Name="LINEID" />
+          </Key>
+          <Property Name="LINEID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="char" MaxLength="80" />
+          <Property Name="PlantID" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="LINECODE" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AML_PROD_20180726.dbo.STATIONCONFIG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="STATIONCONFIG">
+          <Property Name="LINEID" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="LINECODE" Type="varchar" MaxLength="30" />
+          <Property Name="STATIONNO" Type="varchar" MaxLength="15" />
+          <Property Name="STATIONDESC" Type="varchar" MaxLength="80" />
+          <Property Name="SEQNO" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="BUFFERFLAG" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SUBASSYFLAG" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PRIORLINKEDSTATION" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="OPERATORLOGIN" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PROGRESSBAR" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="POLLINTERVAL" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="POLLDELAY" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="LABELFLAG" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SUBASSYSTATION" Type="varchar" MaxLength="10" />
+          <Property Name="DISPLAYLOCATIONDOCS" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="AUDITSTATION" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="PARALLELSTATIONSCOUNT" Type="numeric" Precision="5" Scale="0" />
+        </EntityType>-->
+        <EntityType Name="STATIONS">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="ABSNNO" />
+          </Key>
+          <Property Name="LINEID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="ABSNNO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ABSNDESC" Type="char" MaxLength="80" />
+          <Property Name="ABSNSTART" Type="char" MaxLength="10" />
+          <Property Name="ABSNEND" Type="char" MaxLength="10" />
+          <Property Name="Operators" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="OSMREQUIRED" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PARTPROCESS" Type="bit" />
+          <Property Name="DOCVIEWFIRST" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="AML_PROD_20180726ModelStoreContainer">
+          <EntitySet Name="AML_Andon" EntityType="Self.AML_Andon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_Andon_IndexLog" EntityType="Self.AML_Andon_IndexLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_ANDON_Stations" EntityType="Self.AML_ANDON_Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_LineStatus" EntityType="Self.AML_LineStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_PLC_BuildList" EntityType="Self.AML_PLC_BuildList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_PLC_BuildList_LOG" EntityType="Self.AML_PLC_BuildList_LOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_PLCStatus" EntityType="Self.AML_PLCStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LINES" EntityType="Self.LINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATIONS" EntityType="Self.STATIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AML_LINESTATUS_BODYSHOP" EntityType="Self.AML_LINESTATUS_BODYSHOP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AML_LINESTATUS_BODYSHOP].[LINEID] AS [LINEID], 
+    [AML_LINESTATUS_BODYSHOP].[STATIONNO] AS [STATIONNO], 
+    [AML_LINESTATUS_BODYSHOP].[BUILDNO] AS [BUILDNO], 
+    [AML_LINESTATUS_BODYSHOP].[ENGINEMOVEDATE] AS [ENGINEMOVEDATE], 
+    [AML_LINESTATUS_BODYSHOP].[IPCSTATUS] AS [IPCSTATUS], 
+    [AML_LINESTATUS_BODYSHOP].[ANDONCALL] AS [ANDONCALL], 
+    [AML_LINESTATUS_BODYSHOP].[READSTATUS] AS [READSTATUS], 
+    [AML_LINESTATUS_BODYSHOP].[PLATTENID] AS [PLATTENID], 
+    [AML_LINESTATUS_BODYSHOP].[TAKTTIMESECONDS] AS [TAKTTIMESECONDS]
+    FROM [dbo].[AML_LINESTATUS_BODYSHOP] AS [AML_LINESTATUS_BODYSHOP]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AML_PROD_20180726Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AML_Andon">
+          <Key>
+            <PropertyRef Name="LineID" />
+          </Key>
+          <Property Name="LineID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="TimeSeconds" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="LineStatus" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReadStatus" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="AML_Andon_IndexLog">
+          <Key>
+            <PropertyRef Name="Keyx" />
+          </Key>
+          <Property Name="Keyx" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="Datex" Type="DateTime" Precision="3" />
+          <Property Name="LineID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="StationNO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Spare1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Spare2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Spare3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AML_ANDON_Stations">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="STATIONNO" />
+          </Key>
+          <Property Name="LINEID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="STATIONNO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIMESECONDS" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="LASTUPDATED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="READSTATUS" Type="Int32" />
+          <Property Name="LINESTATUS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AML_LineStatus">
+          <Key>
+            <PropertyRef Name="LineID" />
+            <PropertyRef Name="StationNO" />
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="LineID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="StationNO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BuildNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EngineMoveDate" Type="DateTime" Precision="3" />
+          <Property Name="IPCStatus" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AndonCALL" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="ReadStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AML_PLC_BuildList">
+          <Key>
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="LineID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="BuildNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EASERead" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="AML_PLCStatus">
+          <Key>
+            <PropertyRef Name="StationNo" />
+          </Key>
+          <Property Name="LineID" Type="Int32" />
+          <Property Name="StationNo" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="AndonCall" Type="Int32" />
+          <Property Name="ReadStatus" Type="Int32" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AML_LINESTATUS_BODYSHOP">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="STATIONNO" />
+            <PropertyRef Name="BUILDNO" />
+          </Key>
+          <Property Name="LINEID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="STATIONNO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUILDNO" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="ENGINEMOVEDATE" Type="DateTime" Precision="3" />
+          <Property Name="IPCSTATUS" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="ANDONCALL" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="READSTATUS" Type="Int32" />
+          <Property Name="PLATTENID" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="TAKTTIMESECONDS" Type="Decimal" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="AML_PROD_20180726Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AML_Andon" EntityType="Self.AML_Andon" />
+          <EntitySet Name="AML_Andon_IndexLog" EntityType="Self.AML_Andon_IndexLog" />
+          <EntitySet Name="AML_ANDON_Stations" EntityType="Self.AML_ANDON_Stations" />
+          <EntitySet Name="AML_LineStatus" EntityType="Self.AML_LineStatus" />
+          <EntitySet Name="AML_PLC_BuildList" EntityType="Self.AML_PLC_BuildList" />
+          <EntitySet Name="AML_PLCStatus" EntityType="Self.AML_PLCStatus" />
+          <EntitySet Name="AML_LINESTATUS_BODYSHOP" EntityType="Self.AML_LINESTATUS_BODYSHOP" />
+          <EntitySet Name="AML_PLC_BuildList_LOG" EntityType="AML_PROD_20180726Model.AML_PLC_BuildList_LOG" />
+          <EntitySet Name="LINES" EntityType="AML_PROD_20180726Model.LINE" />
+          <EntitySet Name="STATIONS" EntityType="AML_PROD_20180726Model.STATION" />
+        </EntityContainer>
+        <EntityType Name="AML_PLC_BuildList_LOG">
+          <Key>
+            <PropertyRef Name="BuildNo" />
+          </Key>
+          <Property Name="BuildNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CompleteTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LINE">
+          <Key>
+            <PropertyRef Name="LINEID" />
+          </Key>
+          <Property Name="LINEID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+          <Property Name="PlantID" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="LINECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="STATION">
+          <Key>
+            <PropertyRef Name="LINEID" />
+            <PropertyRef Name="ABSNNO" />
+          </Key>
+          <Property Name="LINEID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="ABSNNO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ABSNDESC" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+          <Property Name="ABSNSTART" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ABSNEND" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Operators" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OSMREQUIRED" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PARTPROCESS" Type="Boolean" />
+          <Property Name="DOCVIEWFIRST" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AML_PROD_20180726ModelStoreContainer" CdmEntityContainer="AML_PROD_20180726Entities">
+          <EntitySetMapping Name="AML_Andon">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_Andon">
+              <MappingFragment StoreEntitySet="AML_Andon">
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="TimeSeconds" ColumnName="TimeSeconds" />
+                <ScalarProperty Name="LineStatus" ColumnName="LineStatus" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_Andon_IndexLog">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_Andon_IndexLog">
+              <MappingFragment StoreEntitySet="AML_Andon_IndexLog">
+                <ScalarProperty Name="Keyx" ColumnName="Keyx" />
+                <ScalarProperty Name="Datex" ColumnName="Datex" />
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="StationNO" ColumnName="StationNO" />
+                <ScalarProperty Name="Spare1" ColumnName="Spare1" />
+                <ScalarProperty Name="Spare2" ColumnName="Spare2" />
+                <ScalarProperty Name="Spare3" ColumnName="Spare3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_ANDON_Stations">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_ANDON_Stations">
+              <MappingFragment StoreEntitySet="AML_ANDON_Stations">
+                <ScalarProperty Name="LINEID" ColumnName="LINEID" />
+                <ScalarProperty Name="STATIONNO" ColumnName="STATIONNO" />
+                <ScalarProperty Name="TIMESECONDS" ColumnName="TIMESECONDS" />
+                <ScalarProperty Name="LASTUPDATED" ColumnName="LASTUPDATED" />
+                <ScalarProperty Name="READSTATUS" ColumnName="READSTATUS" />
+                <ScalarProperty Name="LINESTATUS" ColumnName="LINESTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_LineStatus">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_LineStatus">
+              <MappingFragment StoreEntitySet="AML_LineStatus">
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="StationNO" ColumnName="StationNO" />
+                <ScalarProperty Name="BuildNo" ColumnName="BuildNo" />
+                <ScalarProperty Name="EngineMoveDate" ColumnName="EngineMoveDate" />
+                <ScalarProperty Name="IPCStatus" ColumnName="IPCStatus" />
+                <ScalarProperty Name="AndonCALL" ColumnName="AndonCALL" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_PLC_BuildList">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_PLC_BuildList">
+              <MappingFragment StoreEntitySet="AML_PLC_BuildList">
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="BuildNo" ColumnName="BuildNo" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="EASERead" ColumnName="EASERead" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_PLCStatus">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_PLCStatus">
+              <MappingFragment StoreEntitySet="AML_PLCStatus">
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="StationNo" ColumnName="StationNo" />
+                <ScalarProperty Name="AndonCall" ColumnName="AndonCall" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_LINESTATUS_BODYSHOP">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_LINESTATUS_BODYSHOP">
+              <MappingFragment StoreEntitySet="AML_LINESTATUS_BODYSHOP">
+                <ScalarProperty Name="LINEID" ColumnName="LINEID" />
+                <ScalarProperty Name="STATIONNO" ColumnName="STATIONNO" />
+                <ScalarProperty Name="BUILDNO" ColumnName="BUILDNO" />
+                <ScalarProperty Name="ENGINEMOVEDATE" ColumnName="ENGINEMOVEDATE" />
+                <ScalarProperty Name="IPCSTATUS" ColumnName="IPCSTATUS" />
+                <ScalarProperty Name="ANDONCALL" ColumnName="ANDONCALL" />
+                <ScalarProperty Name="READSTATUS" ColumnName="READSTATUS" />
+                <ScalarProperty Name="PLATTENID" ColumnName="PLATTENID" />
+                <ScalarProperty Name="TAKTTIMESECONDS" ColumnName="TAKTTIMESECONDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AML_PLC_BuildList_LOG">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.AML_PLC_BuildList_LOG">
+              <MappingFragment StoreEntitySet="AML_PLC_BuildList_LOG">
+                <ScalarProperty Name="LogDescription" ColumnName="LogDescription" />
+                <ScalarProperty Name="CompleteTime" ColumnName="CompleteTime" />
+                <ScalarProperty Name="BuildNo" ColumnName="BuildNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LINES">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.LINE">
+              <MappingFragment StoreEntitySet="LINES">
+                <ScalarProperty Name="LINECODE" ColumnName="LINECODE" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="LINEID" ColumnName="LINEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATIONS">
+            <EntityTypeMapping TypeName="AML_PROD_20180726Model.STATION">
+              <MappingFragment StoreEntitySet="STATIONS">
+                <ScalarProperty Name="DOCVIEWFIRST" ColumnName="DOCVIEWFIRST" />
+                <ScalarProperty Name="PARTPROCESS" ColumnName="PARTPROCESS" />
+                <ScalarProperty Name="OSMREQUIRED" ColumnName="OSMREQUIRED" />
+                <ScalarProperty Name="Operators" ColumnName="Operators" />
+                <ScalarProperty Name="ABSNEND" ColumnName="ABSNEND" />
+                <ScalarProperty Name="ABSNSTART" ColumnName="ABSNSTART" />
+                <ScalarProperty Name="ABSNDESC" ColumnName="ABSNDESC" />
+                <ScalarProperty Name="ABSNNO" ColumnName="ABSNNO" />
+                <ScalarProperty Name="LINEID" ColumnName="LINEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
