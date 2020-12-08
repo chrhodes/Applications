@@ -17,19 +17,21 @@ namespace TestPrismApp2.Domain
         // TODO(crhodes)
         // Examples with each different datatype
 
-        [StringLength(50)]
+        [StringLength(50), Required]
         public string FieldString { get; set; }
 
-        public int FieldInt { get; set; }
+        public int? FieldInt { get; set; }
 
-        public double FieldDouble { get; set; }
+        public double? FieldDouble { get; set; }
 
-        public Single FieldSingle { get; set; }
+        public Single? FieldSingle { get; set; }
 
-        public DateTime FieldDate { get; set; }
+        public DateTime? FieldDate { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime FieldDate2 { get; set; }
+        public DateTime? FieldDate2 { get; set; }
+
+        public Boolean? FieldBoolean { get; set; }
 
         #region IModificationHistory
 
@@ -37,7 +39,7 @@ namespace TestPrismApp2.Domain
 
         public DateTime? DateCreated { get; set; }
 
-        public bool? IsDirty { get; set; }
+        public Boolean? IsDirty { get; set; }
 
         #endregion
 

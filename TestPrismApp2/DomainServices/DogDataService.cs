@@ -254,7 +254,15 @@ namespace TestPrismApp2.DomainServices
             using (var context = _contextCreator())
             {
                 _repository = new ConnectedRepository<Dog>(context);
-                await _repository.UpdateAsync(entity);
+
+                if (entity.Id <= 0)
+                {
+                    await _repository.InsertAsync(entity);
+                }
+                else
+                {
+                    await _repository.UpdateAsync(entity);
+                }
             }
 
             Log.Trace(String.Format("Exit"), Common.LOG_APPNAME, startTicks);
@@ -294,10 +302,15 @@ namespace TestPrismApp2.DomainServices
         {
             Int64 startTicks = Log.Trace(String.Format("Enter"), Common.LOG_APPNAME);
 
+            // TODO(crhodes)
+            // Hum.  How to determine if something has changed that can drive the UI logic.
+            // This wont' work as we are creating a brand new context.
+
             using (var context = _contextCreator())
             {
                 _repository = new ConnectedRepository<Dog>(context);
-                return _repository.HasChanges();
+                var result = _repository.HasChanges();
+                return result;
             }
 
             Log.Trace(String.Format("Exit"), Common.LOG_APPNAME, startTicks);

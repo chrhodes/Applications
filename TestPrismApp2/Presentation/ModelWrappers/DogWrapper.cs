@@ -19,33 +19,57 @@ namespace TestPrismApp2.Presentation.ModelWrappers
             set { SetValue(value); }
         }
 
-        public int FieldInt
+        public int? FieldInt
         {
-            get { return GetValue<int>(); }
+            get { return GetValue<int?>(); }
             set { SetValue(value); }
         }
 
-        public double FieldDouble
+        public double? FieldDouble
         {
-            get { return GetValue<double>(); }
+            get { return GetValue<double?>(); }
             set { SetValue(value); }
         }
 
-        public Single FieldSingle
+        public Single? FieldSingle
         {
-            get { return GetValue<Single>(); }
+            get { return GetValue<Single?>(); }
             set { SetValue(value); }
         }
 
-        public DateTime FieldDate
+        public DateTime? FieldDate
         {
-            get { return GetValue<DateTime>(); }
+            get { return GetValue<DateTime?>(); }
             set { SetValue(value); }
         }
 
-        public DateTime FieldDate2
+        public DateTime? FieldDate2
         {
-            get { return GetValue<DateTime>(); }
+            get { return GetValue<DateTime?>(); }
+            set { SetValue(value); }
+        }
+
+        public Boolean? FieldBoolean
+        {
+            get { return GetValue<Boolean?>(); }
+            set { SetValue(value); }
+        }
+
+        public DateTime? DateCreated
+        {
+            get { return GetValue<DateTime?>(); }
+            set { SetValue(value); }
+        }
+
+        public DateTime? DateModified
+        {
+            get { return GetValue<DateTime?>(); }
+            set { SetValue(value); }
+        }
+
+        public Boolean? IsDirty
+        {
+            get { return GetValue<Boolean?>(); }
             set { SetValue(value); }
         }
 

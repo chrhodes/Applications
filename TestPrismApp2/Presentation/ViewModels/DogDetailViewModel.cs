@@ -101,7 +101,8 @@ namespace TestPrismApp2.Presentation.ViewModels
             {
                 if (!HasChanges)
                 {
-                    HasChanges = _dataService.HasChanges();
+                    HasChanges = true;
+                    //HasChanges = _dataService.HasChanges();
                 }
 
                 if (e.PropertyName == nameof(Type.HasErrors))
@@ -143,6 +144,7 @@ namespace TestPrismApp2.Presentation.ViewModels
             Int64 startTicks = Log.Trace(String.Format("Enter"), Common.LOG_APPNAME);
 
             await _dataService.UpdateAsync(Type.Model);
+            HasChanges = false;
             RaiseDetailSavedEvent(Type.Id, Type.FieldString);
 
             //await SaveWithOptimisticConcurrencyAsync(_dataService.UpdateAsync,
@@ -176,8 +178,16 @@ namespace TestPrismApp2.Presentation.ViewModels
         protected override bool OnSaveCanExecute()
         {
             // TODO(crhodes)
-            // Check if Customer is valid
-            return true;
+            // Check if Type is valid or has changes
+            // This enables and disables the button
+
+            var result =  Type != null
+                && !Type.HasErrors
+                && HasChanges;
+
+            return result;
+
+            //return true;
         }
 
         //public ICommand DeleteCommand { get; private set; }
@@ -215,8 +225,17 @@ namespace TestPrismApp2.Presentation.ViewModels
             item.FieldDate = DateTime.Now;
             item.FieldDate2 = DateTime.Now;
 
+            // TODO(crhodes)
+            // Need to figure out how to handle creating new.
+            // This tries to push all the way to the database which complains because
+            // Haven't set Required Fields (e.g. FieldString)
 
-            _dataService.Insert(item);
+            // This was our attempt to use our DataService later - but that creates a context and tries to add item which
+            // throws exception
+
+            //_dataService.Insert(item);
+
+            // This is what was in Claudius Code (NB>  Add does not call Save Changes in his code
             //_friendRepository.Add(friend);
 
             Log.Trace(String.Format("Exit"), Common.LOG_APPNAME, startTicks);
