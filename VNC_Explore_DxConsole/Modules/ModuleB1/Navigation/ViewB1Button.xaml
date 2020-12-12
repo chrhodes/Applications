@@ -1,9 +1,0 @@
-﻿<UserControl x:Class="ModuleB1.ViewB1Button"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:views="clr-namespace:ModuleB1"
-             xmlns:infCommands="clr-namespace:VNCExploreConsole.Infrastructure;assembly=VNCExploreConsole.Infrastructure" >
-    <Grid  Margin="5">
-        <Button Command="{x:Static infCommands:ApplicationCommands.NavigateCommand}" CommandParameter="{x:Type views:ViewB1}">Navigate to View B1</Button>
-    </Grid>
-</UserControl>

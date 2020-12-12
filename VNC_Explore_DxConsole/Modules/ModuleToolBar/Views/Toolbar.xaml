@@ -1,9 +1,0 @@
-﻿<UserControl x:Class="ModuleToolBar.ToolBar"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             xmlns:infra="clr-namespace:VNCExploreConsole.Infrastructure;assembly=VNCExploreConsole.Infrastructure"
-             Height="Auto" Width="Auto">
-    <ToolBar>
-        <Button Command="{x:Static infra:GlobalCommands.SaveAllCommand}" >Save All</Button>
-    </ToolBar>
-</UserControl>
