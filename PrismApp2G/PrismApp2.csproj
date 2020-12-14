@@ -25,8 +25,5 @@
     <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
     <Reference Include="System.Web" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\Data\Interfaces\" />
-  </ItemGroup>
 
 </Project>
