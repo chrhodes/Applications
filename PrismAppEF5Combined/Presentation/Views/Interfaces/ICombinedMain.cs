@@ -1,0 +1,8 @@
+﻿using VNC.Core.Mvvm;
+
+namespace PrismAppEF5.Presentation.Views
+{
+    public interface ICombinedMain : IView
+    {
+    }
+}
