@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismEFI2", "PrismEFI2.csproj", "{AECC7A74-C794-420B-B4FF-098C70BD3564}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VNC.CoreNF", "..\..\vnc\VNC.Core\VNC.CoreNF.csproj", "{B5291223-8B95-4160-946D-C01CDB35DB63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AECC7A74-C794-420B-B4FF-098C70BD3564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECC7A74-C794-420B-B4FF-098C70BD3564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECC7A74-C794-420B-B4FF-098C70BD3564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECC7A74-C794-420B-B4FF-098C70BD3564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5291223-8B95-4160-946D-C01CDB35DB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5291223-8B95-4160-946D-C01CDB35DB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5291223-8B95-4160-946D-C01CDB35DB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5291223-8B95-4160-946D-C01CDB35DB63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06AE7687-4DB0-4079-9AF5-E7B1C4FE45CA}
+	EndGlobalSection
+EndGlobal
