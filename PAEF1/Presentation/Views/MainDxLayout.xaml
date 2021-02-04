@@ -21,8 +21,6 @@
     
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"
     
-    Width="1200"
-    Height="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
 
     d:DesignHeight="200" d:DesignWidth="300"         

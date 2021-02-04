@@ -24,6 +24,6 @@ namespace PAEF1.Presentation.Views
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
 
-        public IViewModel ViewModel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //public IViewModel ViewModel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

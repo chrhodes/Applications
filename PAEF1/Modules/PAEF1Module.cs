@@ -39,6 +39,8 @@ namespace PAEF1
             // TODO(crhodes)
             // This is where you pick the style of what gets loaded in the Shell.
 
+            containerRegistry.RegisterSingleton<IRibbonViewModel, RibbonViewModel>();
+            containerRegistry.RegisterSingleton<IRibbon, Ribbon>();
             containerRegistry.Register<IMainWindow, MainDxLayout>();
 
             containerRegistry.Register<ICombinedMainViewModel, CombinedMainViewModel>();
@@ -68,7 +70,10 @@ namespace PAEF1
         {
             Int64 startTicks = Log.MODULE("Enter", Common.LOG_APPNAME);
 
+            _regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(IRibbon));
+
             _regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(IMainWindow));
+
             //This loads CombinedMain into the MainWindow loaded in App.Xaml.cs
             _regionManager.RegisterViewWithRegion(RegionNames.CombinedMainRegion, typeof(ICombinedMain));
 

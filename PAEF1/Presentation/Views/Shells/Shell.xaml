@@ -9,13 +9,11 @@
     xmlns:infra="clr-namespace:PAEF1.Core"    
     xmlns:prism="http://prismlibrary.com/"
 
-    Width="1200"
-    Height="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Title="{Binding Title}"
-    d:DesignHeight="200" d:DesignWidth="300"
+    d:DesignHeight="800" d:DesignWidth="1200"
  >
     <Grid>
-        <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static infra:RegionNames.MainRegion}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.MainRegion}" />
     </Grid>
 </Window>
