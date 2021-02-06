@@ -5,7 +5,7 @@ using VNC.Core.Mvvm;
 
 namespace PAEF1.Presentation.ViewModels
 {
-    public class MainWindowDxDockLayoutManagerViewModel : ViewModelBase
+    public class MainDxDockLayoutManagerViewModel : ViewModelBase
     {
         private string _title = "PAEF1 - MainWindowDxDockLayoutManager";
 
@@ -31,7 +31,7 @@ namespace PAEF1.Presentation.ViewModels
         //public IAddressDataService _addressDataService { get; set; }
 
         //public IMaterialDataService _materialDataService { get; set; }
-        public MainWindowDxDockLayoutManagerViewModel()
+        public MainDxDockLayoutManagerViewModel()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 

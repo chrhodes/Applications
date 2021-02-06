@@ -2,7 +2,7 @@
 
 namespace PAEF1.Presentation.Views
 {
-    public interface IMainWindow : IView
+    public interface IMain : IView
     {
     }
 }

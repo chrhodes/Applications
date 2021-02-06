@@ -3,9 +3,9 @@ namespace PAEF1.Core
 {
     public static class RegionNames
     {
+        public static string RibbonRegion = "RibbonRegion";
         public static string MainRegion = "MainRegion";
         public static string NavigationRegion = "NavigationRegion";
-        public static string RibbonRegion = "RibbonRegion";
 
         public static string ContentRegion = "ContentRegion";
         public static string ToolBarRegion = "ToolBarRegion";

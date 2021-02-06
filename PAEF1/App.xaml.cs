@@ -167,12 +167,10 @@ namespace PAEF1
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
 
-            //return Container.Resolve<Shell>();
-            return Container.Resolve<RibbonShell>();
-
-            //return Container.Resolve<MainWindow>();
-            //return Container.Resolve<MainWindowDxLayout>();
-            //return Container.Resolve<MainWindowDxDockLayoutManager>();
+            // TODO(crhodes)
+            // Pick the shell to start with.
+            return Container.Resolve<Shell>();
+            // return Container.Resolve<RibbonShell>();
         }
 
         // 12

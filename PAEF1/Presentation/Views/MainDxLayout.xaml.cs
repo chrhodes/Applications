@@ -8,7 +8,7 @@ using VNC.Core.Mvvm;
 
 namespace PAEF1.Presentation.Views
 {
-    public partial class MainDxLayout : ViewBase, IMainWindow
+    public partial class MainDxLayout : ViewBase, IMain
     {
         public MainDxLayoutViewModel _viewModel;
 
@@ -23,7 +23,5 @@ namespace PAEF1.Presentation.Views
 
             Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
         }
-
-        //public IViewModel ViewModel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
