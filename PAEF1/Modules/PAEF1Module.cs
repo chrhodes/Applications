@@ -46,8 +46,8 @@ namespace PAEF1
 
             // Pick one of these for the MainRegion
 
-            //containerRegistry.Register<IMain, Main>();            
-            containerRegistry.Register<IMain, MainDxLayout>();
+            containerRegistry.Register<IMain, Main>();            
+            //containerRegistry.Register<IMain, MainDxLayout>();
             //containerRegistry.Register<IMain, MainDxDockLayoutManager>();            
 
             containerRegistry.Register<ICombinedMainViewModel, CombinedMainViewModel>();
