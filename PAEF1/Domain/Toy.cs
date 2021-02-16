@@ -29,7 +29,7 @@ namespace PAEF1.Domain
 
         #region IOptimistic
 
-        // Need to have data annotation here.  
+        // Need to have data annotation here.
         // Presence in interface ignored.
         [Timestamp]
         public byte[] RowVersion { get; set; }

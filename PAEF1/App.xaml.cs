@@ -171,6 +171,9 @@ namespace PAEF1
             // Pick the shell to start with.
             return Container.Resolve<Shell>();
             // return Container.Resolve<RibbonShell>();
+
+            // NOTE(crhodes)
+            // The type of view to load into the shell is handled in PAEF1Module.cs
         }
 
         // 12

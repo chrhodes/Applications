@@ -45,6 +45,7 @@ namespace PAEF1
             containerRegistry.RegisterSingleton<IRibbon, Ribbon>();
 
             // Pick one of these for the MainRegion
+            // Use Main to see the AutoWireViewModel in action.
 
             containerRegistry.Register<IMain, Main>();            
             //containerRegistry.Register<IMain, MainDxLayout>();
@@ -61,6 +62,10 @@ namespace PAEF1
 
             containerRegistry.RegisterSingleton<IToyDataService, ToyDataService>();
             containerRegistry.RegisterSingleton<IToyLookupDataService, ToyLookupDataService>();
+
+            // This shows the AutoWire ViewModel in action. 
+            containerRegistry.Register<IViewABCViewModel, ViewABCViewModel>();
+            containerRegistry.Register<IViewABC, ViewABC>();
 
             // Figure out how to use one Type
 
@@ -85,6 +90,10 @@ namespace PAEF1
 
             // These load into CombinedMain.xaml
             _regionManager.RegisterViewWithRegion(RegionNames.CombinedNavigationRegion, typeof(ICombinedNavigation));
+
+            // This is for Main and AutoWireViewModel demo
+
+            _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(IViewABC));
 
             Log.MODULE("Exit", Common.LOG_APPNAME, startTicks);
         }
