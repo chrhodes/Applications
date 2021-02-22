@@ -21,7 +21,8 @@
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
 
     prism:ViewModelLocator.AutoWireViewModel="True"
-    d:DesignHeight="200" d:DesignWidth="300"         
+    Background="Gray"
+    d:DesignHeight="200" d:DesignWidth="300"
 >
     <!--xmlns:infra="clr-namespace:$customAPPLICATON$.Core;assembly=$customAPPLICATON$.Core"-->
 

@@ -80,119 +80,119 @@
                     </dxb:BarEditItem.EditSettings>
                 </dxb:BarEditItem>
 
-                <!--<dxb:BarCheckItem 
+                <dxb:BarCheckItem 
                     Name="bci_AdvancedMode" 
                     Content="Enable Advanced Views" 
                     Hint="Enable Additional Views and Command Panels"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                       
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                       
                     ItemClick="OnAdvancedMode_Click" 
-                    ToolTip="bci advanced mode"/>-->
+                    ToolTip="bci advanced mode"/>
 
-                <!--<dxb:BarCheckItem 
+                <dxb:BarCheckItem 
                     Name="bci_AdministratorMode" 
                     Content="Enable Updates" 
                     Hint="Enable grids for updating"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                       
-                    ItemClick="OnAdministratorMode_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                       
+                    ItemClick="OnAdministratorMode_Click"/>
 
-                <!--<dxb:BarCheckItem 
+                <dxb:BarCheckItem 
                     Name="bci_DeveloperMode" 
                     Content="Enable Developer"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                       
-                    ItemClick="OnDeveloperMode_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                       
+                    ItemClick="OnDeveloperMode_Click"/>
 
-                <!--<dxb:BarCheckItem 
+                <dxb:BarCheckItem 
                     Name="bci_BetaMode" 
                     Content="Enable Beta Options" 
                     Hint="Enable half baked ideas"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                       
-                    ItemClick="OnBetaMode_Clicked"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                       
+                    ItemClick="OnBetaMode_Clicked"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_SaveCSV" 
                     Content="Save as .CSV" 
                     Hint="Save all information in the displayed grid as a .CSV file"                       
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"
                     ItemClick="OnFileSave_Click" 
-                    Tag="csv"/>-->
+                    Tag="csv"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_SaveXLS" 
                     Content="Save as .XLS" 
                     Hint="Save all information in the displayed grid as an .XLS file"                      
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                    
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                    
                     ItemClick="OnFileSave_Click" 
-                    Tag="xls"/>-->
+                    Tag="xls"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_SaveXLSX" 
                     Content="Save as .XLSX" 
                     Hint="Save all information in the displayed grid as an .XLSX file"                      
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                    
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                    
                     ItemClick="OnFileSave_Click" 
-                    Tag="xlsx"/>-->
+                    Tag="xlsx"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Settings" 
                     Content="Settings"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-16x16.png"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/save-as-32x32.png"                       
-                    ItemClick="OnSettings_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/save-as-16x16.png"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/save-as-32x32.png"                       
+                    ItemClick="OnSettings_Click"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_About" 
                     Content="About" 
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                     
-                    ItemClick="OnAboutClick"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                     
+                    ItemClick="OnAboutClick"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Feedback" 
                     Content="Provide Feedback" 
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                      
-                    ItemClick="OnSendFeedback_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                      
+                    ItemClick="OnSendFeedback_Click"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Help" 
                     Content="Help" 
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
-                    ItemClick="OnHelp_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
+                    ItemClick="OnHelp_Click"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Exit" 
                     Content="Exit" 
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
-                    ItemClick="OnExit_Click"/>-->
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
+                    ItemClick="OnExit_Click"/>
 
                 <!-- Standard Stuff -->
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_CodeExplorer" 
                     Content="CodeExplorer" 
                     Hint="CodeExplorer with Docking Windowsr"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNCCodeCommandConsole.User_Interface.User_Controls.wucCodeExplorer"/>-->
+                    Tag="PAEF1.User_Interface.User_Controls.wucCodeExplorer"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_UI1" 
                     Content="UI1"
                     Hint="Hint about UI 1"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNC.WPFUserControls.wucUIOne, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />-->
+                    Tag="VNC.WPFUserControls.wucUIOne, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
                 <!-- This tag form is used for local controls -->
 
@@ -205,52 +205,52 @@
 
                 <!-- This tag form is used for external controls -->
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_UI2" 
                     Content="UI2" 
                     Hint="Hint about UI 2"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNC.WPFUserControls.wucUITwo, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>-->
+                    Tag="VNC.WPFUserControls.wucUITwo, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_UI3" 
                     Content="UI3" 
                     Hint="Hint about UI 3"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNC.WPFUserControls.wucUIThree, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>-->
+                    Tag="VNC.WPFUserControls.wucUIThree, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
 
 
                 <!-- Beta Stuff -->
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Beta1" 
                     Content="Beta Idea 1"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNC.WPFUserControls.wucBetaOne, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />-->
+                    Tag="VNC.WPFUserControls.wucBetaOne, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_Beta2" 
                     Content="Beta Idea 2"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNC.WPFUserControls.wucBetaTwo, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />-->
+                    Tag="VNC.WPFUserControls.wucBetaTwo, VNC.WPFUserControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
                 <!-- Admin Stuff -->
 
-                <!--<dxb:BarButtonItem 
+                <dxb:BarButtonItem 
                     Name="bbi_ApplicationUsage" 
                     Content="View Application Usage"
-                    Glyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"
-                    LargeGlyph="/VNCCodeCommandConsole;component/Resources/Icons/application.ico"                        
+                    Glyph="/PAEF1;component/Resources/Icons/application.ico"
+                    LargeGlyph="/PAEF1;component/Resources/Icons/application.ico"                        
                     ItemClick="OnShowInCurrentWindow_Click" 
-                    Tag="VNCCodeCommandConsole.User_Interface.User_Controls.ApplicationUsage"/>-->
+                    Tag="VNCCodeCommandConsole.User_Interface.User_Controls.ApplicationUsage"/>
 
                 <!-- Menus start here -->
 
@@ -327,10 +327,10 @@
                     <dxb:BarButtonItemLink BarItemName="bbi_Beta2" />
                 </dxb:BarSubItem>-->
 
-                <!--<dxb:BarSubItem Name="bsi_Help" Content="Help" Alignment="Far" >
+                <dxb:BarSubItem Name="bsi_Help" Content="Help" Alignment="Far" >
                     <dxb:BarButtonItemLink BarItemName="bbi_Feedback" />
                     <dxb:BarButtonItemLink BarItemName="bbi_About" />
-                </dxb:BarSubItem>-->
+                </dxb:BarSubItem>
 
             </dxb:BarManager.Items>
 

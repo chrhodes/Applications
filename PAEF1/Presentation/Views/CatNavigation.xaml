@@ -9,7 +9,8 @@
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"
     
     mc:Ignorable="d" 
-    d:DesignHeight="450" d:DesignWidth="800"
+    Background="LightGray"
+    d:DesignHeight="300" d:DesignWidth="200"
 >
     <UserControl.Resources>
         <Style x:Key="NavigationItemContainerStyle" TargetType="ContentPresenter">
@@ -45,15 +46,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300" />
-            <RowDefinition />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition />
         </Grid.RowDefinitions>
+        
         <GroupBox Header="Cats">
             <ScrollViewer
                 VerticalScrollBarVisibility="Auto"
-                HorizontalScrollBarVisibility="Auto" Background="Black">
+                HorizontalScrollBarVisibility="Auto" Background="LightBlue">
                 <ItemsControl
                     ItemsSource="{Binding Cats}"
                     ItemContainerStyle="{StaticResource NavigationItemContainerStyle}"

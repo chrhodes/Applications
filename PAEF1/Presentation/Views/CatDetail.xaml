@@ -16,8 +16,8 @@
 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="400"
-    d:DesignWidth="400"
+    Background="LightBlue"
+    d:DesignHeight="600" d:DesignWidth="500"
 >
 
     <Grid>

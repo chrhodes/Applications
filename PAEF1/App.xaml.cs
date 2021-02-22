@@ -169,8 +169,8 @@ namespace PAEF1
 
             // TODO(crhodes)
             // Pick the shell to start with.
-            return Container.Resolve<Shell>();
-            // return Container.Resolve<RibbonShell>();
+            //return Container.Resolve<Shell>();
+            return Container.Resolve<RibbonShell>();
         }
 
         // 12
