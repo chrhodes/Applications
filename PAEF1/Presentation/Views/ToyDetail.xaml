@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="Auto"/>            
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <DataGrid ItemsSource="{Binding Toys}"

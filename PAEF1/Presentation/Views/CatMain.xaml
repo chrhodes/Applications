@@ -8,7 +8,7 @@
 
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
-    
+
     xmlns:views="clr-namespace:PAEF1.Presentation.Views"
     xmlns:viewModels="clr-namespace:PAEF1.Presentation.ViewModels"
     xmlns:infra="clr-namespace:PAEF1.Core"
