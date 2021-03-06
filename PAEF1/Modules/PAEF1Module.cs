@@ -47,9 +47,9 @@ namespace PAEF1
             // Pick one of these for the MainRegion
             // Use Main to see the AutoWireViewModel in action.
 
-            containerRegistry.Register<IMain, Main>();            
+            //containerRegistry.Register<IMain, Main>();   
             //containerRegistry.Register<IMain, MainDxLayout>();
-            //containerRegistry.Register<IMain, MainDxDockLayoutManager>();            
+            containerRegistry.Register<IMain, MainDxDockLayoutManager>();
 
             containerRegistry.Register<ICombinedMainViewModel, CombinedMainViewModel>();
             containerRegistry.RegisterSingleton<ICombinedMain, CombinedMain>();

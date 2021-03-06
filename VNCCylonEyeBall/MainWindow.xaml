@@ -1,0 +1,71 @@
+﻿<Window x:Class="VNCCylonEyeBall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VNCCylonEyeBall"
+            xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+            xmlns:vncwpfv="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--<vncwpfv:CylonEyeBall Height="200" Width="400" />-->
+        <UserControl 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+            <UserControl.Resources>
+                <Style x:Key="colorOneStyle" TargetType="Button">
+                    <Style.Resources>
+                        <LinearGradientBrush x:Key="BackBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5D2727"/>
+                            <GradientStop Color="#FFF93030" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Style.Resources>
+                    <Setter Property="Background" Value="{StaticResource BackBrush}" />
+                </Style>
+            </UserControl.Resources>
+            <UserControl.Triggers>
+                <EventTrigger RoutedEvent="UserControl.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard TargetName="demoBrush1"
+                    TargetProperty="GradientOrigin">
+                            <PointAnimation From="0.575, 0.5" To="0.475, 0.5"
+                          AutoReverse="True"
+                          RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard TargetName="demoBrush2"
+                    TargetProperty="GradientOrigin">
+                            <PointAnimation From="0.1, 0.5" To="0.9, 0.5"
+                          AutoReverse="True"
+                          RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </UserControl.Triggers>
+            <Grid Background="Transparent">
+                <Ellipse x:Name="Eye" Width="600" Height="300" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush x:Name="demoBrush1" GradientOrigin="0.1, 0.5"  >
+                            <GradientStop Color="White" Offset="0"  />
+                            <GradientStop Color="Black"   Offset="1" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse x:Name="EyeBall" Width="200" Height="200" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush x:Name="demoBrush2" GradientOrigin="0.2, 0.5"  >
+                            <GradientStop Color="White" Offset="0"  />
+                            <GradientStop Color="Red"   Offset="1" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </UserControl>
+    </Grid>
+</Window>

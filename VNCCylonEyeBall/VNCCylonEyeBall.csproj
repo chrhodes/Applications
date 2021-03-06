@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net4.8</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="VNC.Core" Version="1.0.0" />
+    <PackageReference Include="VNC.WPF.Presentation" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
