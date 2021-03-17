@@ -6,25 +6,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
 
     xmlns:views="clr-namespace:PAEF1.Presentation.Views"
     xmlns:viewModels="clr-namespace:PAEF1.Presentation.ViewModels"
-    xmlns:infra="clr-namespace:PAEF1.Core"
+    
+    xmlns:animalViews="clr-namespace:PAEF1.Animals.Presentation.Views;assembly=PAEF1.Animals"    
+    xmlns:animalViewModels="clr-namespace:PAEF1.Animals.Presentation.ViewModels;assembly=PAEF1.Animals"
+    xmlns:core="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800"
 >
-
+    <!--xmlns:core="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"-->
     <UserControl.Resources>
         <!-- These are implicit DataTemplates -->
         <DataTemplate DataType="{x:Type viewModels:CatDetailViewModel}">
             <views:CatDetail />
         </DataTemplate>
-        <!-- <DataTemplate DataType="{x:Type viewModels:CatDetailViewModel}"> -->
-            <!-- <views:CatDetail /> -->
-        <!-- </DataTemplate> -->
+        <DataTemplate DataType="{x:Type animalViewModels:DogDetailViewModel}"> 
+             <animalViews:DogDetail /> 
+         </DataTemplate> 
 
         <!-- <DataTemplate DataType="{x:Type viewModels:MeetingDetailViewModel}"> -->
             <!-- <views:MeetingDetail /> -->
@@ -46,10 +49,10 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.ColumnSpan="2" FontSize="18">
             <MenuItem Header="Create">
-                <!-- <MenuItem Header="Add Cat" Command="{Binding CreateNewDetailCommand}" -->
-                          <!-- CommandParameter="{x:Type viewModels:CatDetailViewModel}" /> -->
-                <MenuItem Header="Add Cat" Command="{Binding CreateNewDetailCommand}"
-                          CommandParameter="{x:Type viewModels:CatDetailViewModel}" />
+                 <MenuItem Header="Add Cat" Command="{Binding CreateNewDetailCommand}" 
+                           CommandParameter="{x:Type viewModels:CatDetailViewModel}" /> 
+                <MenuItem Header="Add Dog" Command="{Binding CreateNewDetailCommand}"
+                          CommandParameter="{x:Type animalViewModels:DogDetailViewModel}" />
             </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Toy"
@@ -59,7 +62,7 @@
         </Menu>
 
         <ContentControl Grid.Row="1" Grid.Column="0"
-                        prism:RegionManager.RegionName="{x:Static infra:RegionNames.CombinedNavigationRegion}"
+                        prism:RegionManager.RegionName="{x:Static core:RegionNames.CombinedNavigationRegion}"
                         DataContext="{Binding NavigationViewModel}" />
 
         <TabControl Grid.Row="1" Grid.Column="1"

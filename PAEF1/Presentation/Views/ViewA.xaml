@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
     
     xmlns:views="clr-namespace:PAEF1.Presentation.Views"
@@ -16,7 +16,7 @@
     mc:Ignorable="d"
     d:DesignHeight="100" d:DesignWidth="200"
 >
-
+    <!--xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"-->
     <Grid>
         <StackPanel>
             <TextBlock Text="ViewA" />
