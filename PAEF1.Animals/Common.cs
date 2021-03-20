@@ -5,9 +5,9 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PAEF1
+namespace PAEF1.Animals
 {
-    public class Common
+    public static class Common
     {
         public const string PROJECT_NAME = "PAEF1";
         public const string LOG_APPNAME = "PAEF1";

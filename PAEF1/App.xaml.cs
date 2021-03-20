@@ -124,6 +124,14 @@ namespace PAEF1
             //NOTE(crhodes)
             // Order matters here.  Application depends on types in Cat
             moduleCatalog.AddModule(typeof(CatModule));
+     
+            moduleCatalog.AddModule(typeof(Animals.DogModule));
+
+            // TODO(crhodes)
+            // Figure out if the name of the class is acceptable.  Must be unique
+            // Maybe just go with AnimalsModule or consider
+            moduleCatalog.AddModule(typeof(Animals.PAEF1AnimalsModule));
+
             moduleCatalog.AddModule(typeof(PAEF1Module));
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);

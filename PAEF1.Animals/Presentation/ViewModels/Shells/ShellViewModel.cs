@@ -1,5 +1,7 @@
 ﻿using System;
 
+using PAEF1.Animals;
+
 using VNC;
 using VNC.Core.Mvvm;
 

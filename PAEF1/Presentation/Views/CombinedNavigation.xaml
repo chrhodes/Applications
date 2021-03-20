@@ -62,7 +62,19 @@
                     ItemTemplate="{StaticResource NavigationItemTemplate}" />
             </ScrollViewer>
         </GroupBox>
-        
+
+        <GroupBox Header="Dogs"
+            Grid.Row="1">
+            <ScrollViewer
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Auto" Background="Black">
+                <ItemsControl
+                    ItemsSource="{Binding Dogs}"
+                    ItemContainerStyle="{StaticResource NavigationItemContainerStyle}"
+                    ItemTemplate="{StaticResource NavigationItemTemplate}" />
+            </ScrollViewer>
+        </GroupBox>
+
         <!-- Add Additional Navigation groups here -->
         <!-- <GroupBox Header="Cats" -->
             <!-- Grid.Row="1"> -->
