@@ -6,13 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
     
-    xmlns:infra="clr-namespace:PAEF1.Core"    
+    xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"
     xmlns:prism="http://prismlibrary.com/"
-    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"    
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
 
     prism:ViewModelLocator.AutoWireViewModel="True"
     d:DesignHeight="200" d:DesignWidth="300"
  >
+     <!--xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"-->
     <Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.ContentRegion}" />
     </Grid>

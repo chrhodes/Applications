@@ -100,16 +100,19 @@ namespace PAEF1
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
         }
 
+        //NOTE(crhodes)
+        // This has been removed in Prism 8.0
+
         // 06
 
-        protected override void ConfigureServiceLocator()
-        {
-            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_APPNAME);
+        // protected override void ConfigureServiceLocator()
+        // {
+        // Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_APPNAME);
 
-            base.ConfigureServiceLocator();
+        // base.ConfigureServiceLocator();
 
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
-        }
+        // Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
+        // }
 
         // 07 - Configure the catalog of modules
         // Modules are loaded at Startup and must be a project reference
@@ -121,6 +124,14 @@ namespace PAEF1
             //NOTE(crhodes)
             // Order matters here.  Application depends on types in Cat
             moduleCatalog.AddModule(typeof(CatModule));
+     
+            moduleCatalog.AddModule(typeof(Animals.DogModule));
+
+            // TODO(crhodes)
+            // Figure out if the name of the class is acceptable.  Must be unique
+            // Maybe just go with AnimalsModule or consider
+            moduleCatalog.AddModule(typeof(Animals.PAEF1AnimalsModule));
+
             moduleCatalog.AddModule(typeof(PAEF1Module));
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_APPNAME, startTicks);
@@ -216,6 +227,30 @@ namespace PAEF1
         #endregion
 
         #region Event Handlers
+
+        private void Application_SessionEnding(object sender, SessionEndingCancelEventArgs e)
+        {
+            long startTicks = Log.APPLICATION_END("Enter", Common.LOG_APPNAME);
+
+
+            Log.APPLICATION_END("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            long startTicks = Log.APPLICATION_END("Enter", Common.LOG_APPNAME);
+
+
+            Log.APPLICATION_END("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
+        private void Application_Deactivated(object sender, EventArgs e)
+        {
+            long startTicks = Log.APPLICATION_END("Enter", Common.LOG_APPNAME);
+
+
+            Log.APPLICATION_END("Exit", Common.LOG_APPNAME, startTicks);
+        }
 
         private void Application_DispatcherUnhandledException(object sender,
             System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

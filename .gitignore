@@ -1,5 +1,12 @@
 # Ignore Folders until ready to commit
 
+EASE/
+LoggingTeaser/
+PAEF1x/
+Temp/
+WPFBinding101/
+
+
 # Ignore Zip Files
 *.zip
 

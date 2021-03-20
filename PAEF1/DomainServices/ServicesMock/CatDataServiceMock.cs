@@ -149,6 +149,15 @@ namespace PAEF1.DomainServices
             Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
 
+        public void Update()
+        {
+            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
+
+            throw new NotImplementedException();
+
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
+        }
+
         public Task<Cat> UpdateAsync(Cat entity)
         {
             Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
@@ -163,11 +172,8 @@ namespace PAEF1.DomainServices
             Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_APPNAME);
 
             throw new NotImplementedException();
-        }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
+            Log.DOMAINSERVICES("Exit", Common.LOG_APPNAME, startTicks);
         }
     }
 }

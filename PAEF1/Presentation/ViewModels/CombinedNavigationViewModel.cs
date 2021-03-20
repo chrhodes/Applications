@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
+using PAEF1.Animals.DomainServices;
+using PAEF1.Animals.Presentation.ViewModels;
 using PAEF1.DomainServices;
 
 using Prism.Events;
@@ -19,13 +21,14 @@ namespace PAEF1.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public CombinedNavigationViewModel(
-                ICatLookupDataService CatLookupDataService,
+                ICatLookupDataService CatLookupDataService, IDogLookupDataService DogLookupDataService,
                 IEventAggregator eventAggregator,
                 IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
             _CatLookupDataService = CatLookupDataService;
+            _DogLookupDataService = DogLookupDataService;
 
             InitializeViewModel();
 
@@ -39,6 +42,8 @@ namespace PAEF1.Presentation.ViewModels
             InstanceCountVM++;
 
             Cats = new ObservableCollection<NavigationItemViewModel>();
+
+            Dogs = new ObservableCollection<NavigationItemViewModel>();
 
             EventAggregator.GetEvent<AfterDetailSavedEvent>()
                 .Subscribe(AfterDetailSaved);
@@ -64,8 +69,11 @@ namespace PAEF1.Presentation.ViewModels
         #region Fields and Properties
 
         private ICatLookupDataService _CatLookupDataService;
+        private IDogLookupDataService _DogLookupDataService;
 
         public ObservableCollection<NavigationItemViewModel> Cats { get; private set; }
+
+        public ObservableCollection<NavigationItemViewModel> Dogs { get; private set; }
 
         #endregion
 
@@ -81,9 +89,9 @@ namespace PAEF1.Presentation.ViewModels
                     AfterDetailSaved(Cats, args);
                     break;
 
-                // case nameof(Cat2DetailViewModel):
-                // AfterDetailSaved(Cat2s, args);
-                // break;
+                case nameof(DogDetailViewModel):
+                    AfterDetailSaved(Dogs, args);
+                    break;
 
                 default:
                     throw new System.Exception($"AfterDetailSaved(): ViewModel {args.ViewModelName} not mapped.");
@@ -102,9 +110,9 @@ namespace PAEF1.Presentation.ViewModels
                     AfterDetailDeleted(Cats, args);
                     break;
 
-                // case nameof(Cat2DetailViewModel):
-                // AfterDetailDeleted(Cat2s, args);
-                // break;
+                case nameof(DogDetailViewModel):
+                    AfterDetailDeleted(Dogs, args);
+                    break;
 
                 default:
                     throw new System.Exception($"AfterDetailDeleted(): ViewModel {args.ViewModelName} not mapped.");
@@ -132,16 +140,16 @@ namespace PAEF1.Presentation.ViewModels
                     EventAggregator, MessageDialogService));
             }
 
-            // var lookupCat2s = await _Cat2LookupDataService.GetCat2LookupAsync();
-            // Cat2s.Clear();
+            var lookupDogs = await _DogLookupDataService.GetDogLookupAsync();
+            Dogs.Clear();
 
-            // foreach (var item in lookupCat2s)
-            // {
-            // Cat2s.Add(
-            // new NavigationItemViewModel(item.Id, item.DisplayMember,
-            // nameof(Cat2DetailViewModel),
-            // EventAggregator, MessageDialogService));
-            // }
+            foreach (var item in lookupDogs)
+            {
+                Dogs.Add(
+                    new NavigationItemViewModel(item.Id, item.DisplayMember,
+                    nameof(DogDetailViewModel),
+                    EventAggregator, MessageDialogService));
+            }
 
             //TODO(crhodes)
             // Load more TYPEs as needed here

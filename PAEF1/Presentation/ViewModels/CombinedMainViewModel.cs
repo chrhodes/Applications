@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+using PAEF1.Animals.DomainServices;
+using PAEF1.Animals.Presentation.ViewModels;
+
 using Prism.Commands;
 using Prism.Events;
 
@@ -21,8 +24,8 @@ namespace PAEF1.Presentation.ViewModels
 
         public CombinedMainViewModel(
             ICombinedNavigationViewModel navigationViewModel,
-            //Func<ICatDetailViewModel> catDetailViewModelCreator,
             Func<ICatDetailViewModel> CatDetailViewModelCreator,
+            Func<IDogDetailViewModel> DogDetailViewModelCreator,
             Func<IToyDetailViewModel> ToyDetailViewModelCreator,
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
@@ -30,9 +33,11 @@ namespace PAEF1.Presentation.ViewModels
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
             NavigationViewModel = navigationViewModel;
-            //_CatDetailViewModelCreator = catDetailViewModelCreator;
+
             _CatDetailViewModelCreator = CatDetailViewModelCreator;
             _ToyDetailViewModelCreator = ToyDetailViewModelCreator;
+
+            _DogDetailViewModelCreator = DogDetailViewModelCreator;
 
             InitializeViewModel();
 
@@ -80,6 +85,7 @@ namespace PAEF1.Presentation.ViewModels
         #region Fields and Properties
 
         private Func<ICatDetailViewModel> _CatDetailViewModelCreator;
+        private Func<IDogDetailViewModel> _DogDetailViewModelCreator;
         private Func<IToyDetailViewModel> _ToyDetailViewModelCreator;
 
         private IDetailViewModel _selectedDetailViewModel;
@@ -153,12 +159,12 @@ namespace PAEF1.Presentation.ViewModels
                 switch (args.ViewModelName)
                 {
 
-                    // case nameof(CatDetailViewModel):
-                    // detailViewModel = (IDetailViewModel)_CatDetailViewModelCreator();
-                    // break;
-
                     case nameof(CatDetailViewModel):
                         detailViewModel = (IDetailViewModel)_CatDetailViewModelCreator();
+                        break;
+
+                    case nameof(DogDetailViewModel):
+                        detailViewModel = (IDetailViewModel)_DogDetailViewModelCreator();
                         break;
 
                     //case nameof(MeetingDetailViewModel):

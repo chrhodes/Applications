@@ -14,17 +14,16 @@
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:infra="clr-namespace:PAEF1.Core"
+    xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"
     xmlns:prism="http://prismlibrary.com/"
-    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"    
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
 
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Background="Gray"
-    d:DesignHeight="200" d:DesignWidth="300"
+    d:DesignHeight="200" d:DesignWidth="300"         
 >
-    <!--xmlns:infra="clr-namespace:$customAPPLICATON$.Core;assembly=$customAPPLICATON$.Core"-->
+    <!--xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"-->
 
     <dxlc:LayoutControl
         HorizontalAlignment="Stretch"
@@ -63,6 +62,10 @@
                 <Grid>
                     <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.CatMainRegion}" />
                 </Grid>
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Header="Dog" >
+                <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.DogMainRegion}" />
             </dxlc:LayoutGroup>
 
             <!-- Add more groups here for each different TYPE in the navigation -->

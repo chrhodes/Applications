@@ -14,23 +14,21 @@
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:infra="clr-namespace:PAEF1.Core"
+    xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"
     xmlns:prism="http://prismlibrary.com/"
-    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.CoreNF"  
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
       
     xmlns:local="clr-namespace:PAEF1.Presentation.Views"
     
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Background="Gray"
     d:DesignHeight="200" d:DesignWidth="300"         
 >
-    <!--xmlns:infra="clr-namespace:$customAPPLICATON$.Core;assembly=$customAPPLICATON$.Core"-->
+    <!--xmlns:infra="clr-namespace:PAEF1.Core;assembly=PAEF1.Core"-->
 
-    <dxlc:LayoutControl
+    <dxlc:LayoutControl Name="lc_Root"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
         Background="Transparent"
-        Name="lc_Root"
         Orientation="Vertical">
         <dxlc:LayoutControl.AvailableItems>
             <!-- Add things that are optionally displayable-->
@@ -103,10 +101,10 @@
                                     </Grid>-->
                                 </dxlc:LayoutGroup>
                                 
-                                <!-- <dxlc:LayoutGroup Header="TYPE" > -->
-                                    <!-- <Grid> -->
-                                        <!-- <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.TYPEMainRegion}" /> -->
-                                    <!-- </Grid> -->
+                                 <dxlc:LayoutGroup Header="Dog" > 
+                                     <Grid> 
+                                         <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.DogMainRegion}" /> 
+                                     </Grid> 
                                     <!-- <Grid> -->
                                         <!-- <Grid.ColumnDefinitions> -->
                                             <!-- <ColumnDefinition Width="200"/> -->
@@ -117,7 +115,7 @@
                                         <!-- <ContentControl Grid.Column="1"  -->
                                                         <!-- prism:RegionManager.RegionName="{x:Static infra:RegionNames.CatDetailRegion}" /> -->
                                     <!-- </Grid> -->
-                                <!-- </dxlc:LayoutGroup> -->
+                                 </dxlc:LayoutGroup> 
 
                             </dxlc:LayoutGroup>
                         </dxlc:LayoutControl>
