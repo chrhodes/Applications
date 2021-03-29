@@ -22,7 +22,7 @@ using System.Windows;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-// [assembly: Guid("356d7631-4c40-4c57-bf71-543c323b5457")]
+// [assembly: Guid("8f7e3df4-b9f6-4509-aae7-41523a74549f")]
 
 //In order to begin building localizable applications, set
 //<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
@@ -86,4 +86,4 @@ using System.Windows;
 //  1.0.0.0   yyyy/mm/dd    Developer
 //      Initial Version
 
-[assembly: AssemblyInformationalVersion("1.0.0.0-2021-02-20A")]
+[assembly: AssemblyInformationalVersion("1.0.0.0-yyyy-mm-ddA")]

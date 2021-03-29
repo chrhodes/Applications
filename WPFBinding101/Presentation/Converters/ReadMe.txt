@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\Converters\
+﻿\Presentation\Converters\
 
 Notes for using this template

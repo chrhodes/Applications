@@ -1,3 +1,3 @@
-﻿WPFBinding101\Core\Events\
+﻿\Core\Events\
 
 Notes for using this template

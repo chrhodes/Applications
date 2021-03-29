@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\ViewModels\
+﻿\Presentation\ViewModels\
 
 Notes for using this template

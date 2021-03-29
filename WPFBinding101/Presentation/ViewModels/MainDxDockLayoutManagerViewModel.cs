@@ -3,11 +3,11 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.ViewModels
+namespace .Presentation.ViewModels
 {
     public class MainDxDockLayoutManagerViewModel : ViewModelBase
     {
-        private string _title = "WPFBinding101 - MainWindowDxDockLayoutManager";
+        private string _title = " - MainWindowDxDockLayoutManager";
 
         public string Title
         {
@@ -33,9 +33,9 @@ namespace WPFBinding101.Presentation.ViewModels
         //public IMaterialDataService _materialDataService { get; set; }
         public MainDxDockLayoutManagerViewModel()
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         //public MainWindowDxViewModel(

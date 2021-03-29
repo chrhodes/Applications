@@ -1,3 +1,3 @@
-﻿WPFBinding101\Persistence\Data\Migrations\
+﻿\Persistence\Data\Migrations\
 
 Notes for using this template

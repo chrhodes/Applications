@@ -3,64 +3,64 @@ using System.Data.Entity.Migrations;
 
 using VNC;
 
-namespace WPFBinding101.Persistence.Data.Migrations
+namespace .Persistence.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<WPFBinding101DbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DbContext>
     {
         public Configuration()
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             AutomaticMigrationsEnabled = true;
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        protected override void Seed(WPFBinding101DbContext context)
+        protected override void Seed(DbContext context)
         {
-            Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_CATEGORY);
 
             //  This method will be called after migrating to the latest version.
 
             SeedInitialDatabaseTables(context);
             base.Seed(context);
 
-            Log.PERSISTENCE("Exit", Common.LOG_APPNAME, startTicks);
+            Log.PERSISTENCE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        void SeedInitialDatabaseTables(WPFBinding101DbContext context)
+        void SeedInitialDatabaseTables(DbContext context)
         {
-            Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.PERSISTENCE("Enter", Common.LOG_CATEGORY);
 
             //  Use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            context.BirdsSet.AddOrUpdate(
+            context.sSet.AddOrUpdate(
                 i => i.Id,
-                new Domain.Bird
+                new Domain.
                 {
                     Id = 1,
-                    FieldString = "Bird1",
+                    FieldString = "1",
                     FieldInt = 1,
                     FieldSingle = 1.1f,
                     FieldDouble = 11.11,
                     FieldDate = new DateTime(2001, 1, 1),
                     DateCreated = DateTime.Now
                 },
-                new Domain.Bird
+                new Domain.
                 {
                     Id = 2,
-                    FieldString = "Bird2",
+                    FieldString = "2",
                     FieldInt = 2,
                     FieldSingle = 2.2f,
                     FieldDouble = 22.22,
                     FieldDate = new DateTime(2002, 2, 2),
                     DateCreated = DateTime.Now
                 },
-                new Domain.Bird
+                new Domain.
                 {
                     Id = 3,
-                    FieldString = "Bird3",
+                    FieldString = "3",
                     FieldInt = 3,
                     FieldSingle = 3.3f,
                     FieldDouble = 33.33,
@@ -68,7 +68,7 @@ namespace WPFBinding101.Persistence.Data.Migrations
                     DateCreated = DateTime.Now
                 });
 
-            Log.PERSISTENCE("Exit", Common.LOG_APPNAME, startTicks);
+            Log.PERSISTENCE("Exit", Common.LOG_CATEGORY, startTicks);
         }
     }
 }

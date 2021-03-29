@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\Views\Shells
+﻿\Presentation\Views\Shells
 
 Notes for using this template

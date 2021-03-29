@@ -3,19 +3,19 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.Views
+namespace .Presentation.Views
 {
     public partial class CombinedNavigation : ViewBase, ICombinedNavigation, IInstanceCountV
     {
 
         public CombinedNavigation()
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
             InitializeComponent();
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #region IInstanceCount

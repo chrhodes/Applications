@@ -12,7 +12,7 @@ using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace WPFBinding101.Presentation.ViewModels
+namespace .Presentation.ViewModels
 {
     public class CombinedMainViewModel : EventViewModelBase, ICombinedMainViewModel, IInstanceCountVM
     {
@@ -22,26 +22,26 @@ namespace WPFBinding101.Presentation.ViewModels
         public CombinedMainViewModel(
             ICombinedNavigationViewModel navigationViewModel,
             //Func<ICatDetailViewModel> catDetailViewModelCreator,
-            Func<IBirdDetailViewModel> BirdDetailViewModelCreator,
-            Func<ISeedDetailViewModel> SeedDetailViewModelCreator,
+            Func<IDetailViewModel> DetailViewModelCreator,
+            Func<IDetailViewModel> DetailViewModelCreator,
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             NavigationViewModel = navigationViewModel;
             //_CatDetailViewModelCreator = catDetailViewModelCreator;
-            _BirdDetailViewModelCreator = BirdDetailViewModelCreator;
-            _SeedDetailViewModelCreator = SeedDetailViewModelCreator;
+            _DetailViewModelCreator = DetailViewModelCreator;
+            _DetailViewModelCreator = DetailViewModelCreator;
 
             InitializeViewModel();
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
         {
-            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_CATEGORY);
 
             InstanceCountVM++;
 
@@ -62,7 +62,7 @@ namespace WPFBinding101.Presentation.ViewModels
             OpenSingleDetailViewCommand = new DelegateCommand<Type>(
                 OpenSingleDetailExecute);
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -79,8 +79,8 @@ namespace WPFBinding101.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private Func<IBirdDetailViewModel> _BirdDetailViewModelCreator;
-        private Func<ISeedDetailViewModel> _SeedDetailViewModelCreator;
+        private Func<IDetailViewModel> _DetailViewModelCreator;
+        private Func<IDetailViewModel> _DetailViewModelCreator;
 
         private IDetailViewModel _selectedDetailViewModel;
 
@@ -89,9 +89,9 @@ namespace WPFBinding101.Presentation.ViewModels
         public ICommand OpenSingleDetailViewCommand { get; private set; }
 
         // N.B. This is public so View.Xaml can bind to it.
-        public ICombinedNavigationViewModel NavigationViewModel { get; private set; }
+        public ICombinedNavigationViewModel NavigationViewModel { get; private set;}
 
-        public ObservableCollection<IDetailViewModel> DetailViewModels { get; private set; }
+        public ObservableCollection<IDetailViewModel> DetailViewModels { get; private set;}
 
         private int _nextNewItemId = 0;
 
@@ -114,7 +114,7 @@ namespace WPFBinding101.Presentation.ViewModels
 
         void OpenSingleDetailExecute(Type viewModelType)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             OpenDetailView(
                 new OpenDetailViewEventArgs
@@ -123,12 +123,12 @@ namespace WPFBinding101.Presentation.ViewModels
                     ViewModelName = viewModelType.Name
                 });
 
-            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void CreateNewDetailExecute(Type viewModelType)
         {
-            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_CATEGORY);
 
             OpenDetailView(
                 new OpenDetailViewEventArgs
@@ -137,12 +137,12 @@ namespace WPFBinding101.Presentation.ViewModels
                     ViewModelName = viewModelType.Name
                 });
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER($"(BirdMainViewModel) Enter Id:({args.Id}(", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER($"(MainViewModel) Enter Id:({args.Id}(", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -154,20 +154,20 @@ namespace WPFBinding101.Presentation.ViewModels
                 {
 
                     // case nameof(CatDetailViewModel):
-                    // detailViewModel = (IDetailViewModel)_CatDetailViewModelCreator();
-                    // break;
+                        // detailViewModel = (IDetailViewModel)_CatDetailViewModelCreator();
+                        // break;
 
-                    case nameof(BirdDetailViewModel):
-                        detailViewModel = (IDetailViewModel)_BirdDetailViewModelCreator();
+                    case nameof(DetailViewModel):
+                        detailViewModel = (IDetailViewModel)_DetailViewModelCreator();
                         break;
 
                     //case nameof(MeetingDetailViewModel):
                     //    detailViewModel = _meetingDetailViewModelCreator();
                     //    break;
 
-                    case nameof(SeedDetailViewModel):
-                        detailViewModel = _SeedDetailViewModelCreator();
-                        break;
+                    case nameof(DetailViewModel):
+                       detailViewModel = _DetailViewModelCreator();
+                       break;
 
                     // This should not happen anymore withe TYPEEvent
                     default:
@@ -193,30 +193,30 @@ namespace WPFBinding101.Presentation.ViewModels
 
             SelectedDetailViewModel = detailViewModel;
 
-            Log.VIEWMODEL("(BirdMainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("(MainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             RemoveDetailViewModel(args.Id, args.ViewModelName);
 
-            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         void AfterDetailClosed(AfterDetailClosedEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             RemoveDetailViewModel(args.Id, args.ViewModelName);
 
-            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void RemoveDetailViewModel(int id, string viewModelName)
         {
-            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                 .SingleOrDefault(vm => vm.Id == id
@@ -227,7 +227,7 @@ namespace WPFBinding101.Presentation.ViewModels
                 DetailViewModels.Remove(detailViewModel);
             }
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -236,11 +236,11 @@ namespace WPFBinding101.Presentation.ViewModels
 
         public async Task LoadAsync()
         {
-            Int64 startTicks = Log.VIEWMODEL("CombinedMainViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("CombinedMainViewModel) Enter", Common.LOG_CATEGORY);
 
             await NavigationViewModel.LoadAsync();
 
-            Log.VIEWMODEL("CombinedMainViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("CombinedMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

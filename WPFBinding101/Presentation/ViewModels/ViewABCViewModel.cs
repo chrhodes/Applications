@@ -12,7 +12,7 @@ using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
-namespace WPFBinding101.Presentation.ViewModels
+namespace .Presentation.ViewModels
 {
     public class ViewABCViewModel : EventViewModelBase, IViewABCViewModel, IInstanceCountVM
     {
@@ -23,19 +23,19 @@ namespace WPFBinding101.Presentation.ViewModels
             IEventAggregator eventAggregator,
             IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             // TODO(crhodes)
             // Save constructor parameters here
 
             InitializeViewModel();
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
         {
-            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_CATEGORY);
 
             InstanceCountVM++;
 
@@ -47,7 +47,7 @@ namespace WPFBinding101.Presentation.ViewModels
             MessageB = "ViewModelABC says hello B";
             MessageC = "ViewModelABC says hello C";
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -63,9 +63,9 @@ namespace WPFBinding101.Presentation.ViewModels
         #endregion
 
         #region Fields and Properties
-
+        
         private string _message;
-
+        
         public string Message
         {
             get => _message;
@@ -79,7 +79,7 @@ namespace WPFBinding101.Presentation.ViewModels
         }
 
         private string _messageA;
-
+        
         public string MessageA
         {
             get => _messageA;
@@ -93,7 +93,7 @@ namespace WPFBinding101.Presentation.ViewModels
         }
 
         private string _messageB;
-
+        
         public string MessageB
         {
             get => _messageB;
@@ -107,7 +107,7 @@ namespace WPFBinding101.Presentation.ViewModels
         }
 
         private string _messageC;
-
+        
         public string MessageC
         {
             get => _messageC;
@@ -119,7 +119,7 @@ namespace WPFBinding101.Presentation.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         #endregion
 
         #region Event Handlers

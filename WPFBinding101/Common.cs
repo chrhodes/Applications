@@ -5,14 +5,14 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFBinding101
+namespace 
 {
     public class Common
     {
-        public const string PROJECT_NAME = "WPFBinding101";
-        public const string LOG_APPNAME = "WPFBinding101";
+        public const string APPLICATION_NAME = "";
+        public const string LOG_CATEGORY = "";
 
-        public const string cCONFIG_FILE = @"C:\temp\WPFBinding101_Config.xml";
+        public const string cCONFIG_FILE = @"C:\temp\_Config.xml";
 
         public static event EventHandler AutoHideGroupSpeedChanged;
 
@@ -76,8 +76,8 @@ namespace WPFBinding101
 
         // public static IPrincipal CurrentUser
         // {
-        // get;
-        // set;
+            // get;
+            // set;
         // }
 
         // public static User_Interface.ViewMode UserMode { get; set; }
@@ -94,11 +94,11 @@ namespace WPFBinding101
         // private static bool _DataFullyLoaded = false;
         // public static bool DataFullyLoaded
         // {
-        // get { return _DataFullyLoaded; }
-        // set
-        // {
-        // _DataFullyLoaded = value;
-        // }
+            // get { return _DataFullyLoaded; }
+            // set
+            // {
+                // _DataFullyLoaded = value;
+            // }
         // }
 
         // // TODO(crhodes): Get rid of this (I think) and use the one from VNCCodeCommandConsole.  See if need anything else
@@ -107,40 +107,40 @@ namespace WPFBinding101
 
         // public static Data.ApplicationDataSet ApplicationDataSet
         // {
-        // get
-        // {
-        // if (_ApplicationDataSet == null)
-        // {
-        // //_ApplicationDataSet = new VNCCodeCommandConsole.Data.ApplicationDataSet();
-        // _ApplicationDataSet = new Data.ApplicationDataSet();
+            // get
+            // {
+                // if (_ApplicationDataSet == null)
+                // {
+                    // //_ApplicationDataSet = new VNCCodeCommandConsole.Data.ApplicationDataSet();
+                    // _ApplicationDataSet = new Data.ApplicationDataSet();
 
-        // // TODO: Add any other initialization of things related to the ApplicationDataSet
-        // }
+                    // // TODO: Add any other initialization of things related to the ApplicationDataSet
+                // }
 
-        // return _ApplicationDataSet;
-        // }
-        // set
-        // {
-        // _ApplicationDataSet = value;
-        // }
+                // return _ApplicationDataSet;
+            // }
+            // set
+            // {
+                // _ApplicationDataSet = value;
+            // }
         // }
 
         // public static void IndicateApplicationUsage(string application, DateTime eventDate, string user, string message)
         // {
-        // if ( ! Data.Config.DBBypass)
-        // {
-        // var dataRow = Common.ApplicationDataSet.ApplicationUsage.NewApplicationUsageRow();
+            // if ( ! Data.Config.DBBypass)
+            // {
+                // var dataRow = Common.ApplicationDataSet.ApplicationUsage.NewApplicationUsageRow();
 
-        // dataRow.Application = application;
-        // dataRow.EventDate = eventDate;
-        // dataRow.User = user;
-        // dataRow.EventMessage = message;
+                // dataRow.Application = application;
+                // dataRow.EventDate = eventDate;
+                // dataRow.User = user;
+                // dataRow.EventMessage = message;
 
-        // Common.ApplicationDataSet.ApplicationUsage.AddApplicationUsageRow(dataRow);
+                // Common.ApplicationDataSet.ApplicationUsage.AddApplicationUsageRow(dataRow);
 
-        // Data.ApplicationDataSetTableAdapters.ApplicationUsageTableAdapter applicationUsageTA = new Data.ApplicationDataSetTableAdapters.ApplicationUsageTableAdapter();
-        // applicationUsageTA.Update(Common.ApplicationDataSet.ApplicationUsage);
+                // Data.ApplicationDataSetTableAdapters.ApplicationUsageTableAdapter applicationUsageTA = new Data.ApplicationDataSetTableAdapters.ApplicationUsageTableAdapter();
+                // applicationUsageTA.Update(Common.ApplicationDataSet.ApplicationUsage);
+            // }
         // }
-        // }
-    }
+  }
 }

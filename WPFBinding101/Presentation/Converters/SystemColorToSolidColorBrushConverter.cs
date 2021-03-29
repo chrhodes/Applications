@@ -2,7 +2,7 @@ using System;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace WPFBinding101.Presentation.Converters
+namespace .Presentation.Converters
 {
     [ValueConversion(typeof(System.Drawing.Color), typeof(SolidColorBrush))]
     public class SystemColorToSolidColorBrushConverter : IValueConverter

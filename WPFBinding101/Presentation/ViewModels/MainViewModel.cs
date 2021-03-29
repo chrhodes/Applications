@@ -3,12 +3,12 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.ViewModels
+namespace .Presentation.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
 
-        private string _title = "WPFBinding101 - MainWindow";
+        private string _title = " - MainWindow";
 
         public string Title
         {
@@ -22,18 +22,18 @@ namespace WPFBinding101.Presentation.ViewModels
             }
         }
 
-        // ObservableCollection notifies databinding when collection changes
-        // because it implements INotifyPropertyChanged
+    // ObservableCollection notifies databinding when collection changes
+    // because it implements INotifyPropertyChanged
 
-        //public ObservableCollection<Customer> Customers { get; set; }
+    //public ObservableCollection<Customer> Customers { get; set; }
 
-        //public IDataService _typeDataService { get; set; }
+    //public IDataService _typeDataService { get; set; }
 
         public MainViewModel()
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
         //public MainWindowViewModel(I customerDataService)
         //{

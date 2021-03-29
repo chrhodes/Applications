@@ -1,5 +1,4 @@
-
-namespace WPFBinding101.Core
+namespace .Core
 {
     public static class RegionNames
     {
@@ -15,9 +14,9 @@ namespace WPFBinding101.Core
         public static string CombinedMainRegion = "CombinedMainRegion";
         public static string CombinedNavigationRegion = "CombinedNavigationRegion";
         public static string CombinedDetailRegion = "CombinedDetailRegion";
-
-        public static string BirdMainRegion = "BirdMainRegion";
-        public static string BirdNavigationRegion = "BirdNavigationRegion";
-        public static string BirdDetailRegion = "BirdDetailRegion";
+        
+        public static string MainRegion = "MainRegion";
+        public static string NavigationRegion = "NavigationRegion";
+        public static string DetailRegion = "DetailRegion";
     }
 }

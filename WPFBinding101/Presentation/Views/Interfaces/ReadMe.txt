@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\Views\Interfaces\
+﻿\Presentation\Views\Interfaces\
 
 Notes for using this template

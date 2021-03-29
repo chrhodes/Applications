@@ -11,21 +11,21 @@ using DevExpress.Xpf.Ribbon;
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.Views
+namespace .Presentation.Views
 {
     public partial class Ribbon : VNC.Core.Mvvm.ViewBase, IRibbon, IInstanceCountV
     {
 
         public Ribbon(ViewModels.IRibbonViewModel viewModel)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
 
             InstanceCountV++;
             InitializeComponent();
 
             ViewModel = viewModel;
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #region IInstanceCount
@@ -46,36 +46,36 @@ namespace WPFBinding101.Presentation.Views
         #region Initialization
 
         //private void OnWindowLoaded(object sender, RoutedEventArgs e)
-        //        {
-        //#if TRACE
-        //            long startTicks = VNC.Log.Trace15("Enter", Common.LOG_APPNAME, CLASS_BASE_ERRORNUMBER + 0);
-        //#endif
-        //            // Do not load your data at design time.
-        //            if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-        //            {
-        //                if (!Data.Config.DBBypass)
-        //                {
-        //                    Common.ApplicationDataSet.LoadApplicationDataSetFromDB(Common.ApplicationDataSet);
-        //                }
+//        {
+//#if TRACE
+//            long startTicks = VNC.Log.Trace15("Enter", Common.LOG_CATEGORY, CLASS_BASE_ERRORNUMBER + 0);
+//#endif
+//            // Do not load your data at design time.
+//            if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+//            {
+//                if (!Data.Config.DBBypass)
+//                {
+//                    Common.ApplicationDataSet.LoadApplicationDataSetFromDB(Common.ApplicationDataSet);
+//                }
 
-        //                // HACK(crhodes)
-        //                // Disable loading data so we can run app
-        //                // but pretend we have
-        //                Common.DataFullyLoaded = true;
-        //            }
+//                // HACK(crhodes)
+//                // Disable loading data so we can run app
+//                // but pretend we have
+//                Common.DataFullyLoaded = true;
+//            }
 
-        //            VNC.AssemblyHelper.AssemblyInformation info = new VNC.AssemblyHelper.AssemblyInformation(System.Reflection.Assembly.GetExecutingAssembly());
+//            VNC.AssemblyHelper.AssemblyInformation info = new VNC.AssemblyHelper.AssemblyInformation(System.Reflection.Assembly.GetExecutingAssembly());
 
-        //            var eventMessage = string.Format("Started Version: {0}", info.InformationalVersionAttribute);
+//            var eventMessage = string.Format("Started Version: {0}", info.InformationalVersionAttribute);
 
-        //            Common.IndicateApplicationUsage(Common.LOG_APPNAME, DateTime.Now, Common.CurrentUser.Identity.Name, eventMessage);
+//            Common.IndicateApplicationUsage(Common.LOG_CATEGORY, DateTime.Now, Common.CurrentUser.Identity.Name, eventMessage);
 
-        //            Common.UserMode = new ViewMode(Data.Config.DefaultUserMode);
-        //            Common.RowDetailMode = Data.Config.RowDetailMode;
+//            Common.UserMode = new ViewMode(Data.Config.DefaultUserMode);
+//            Common.RowDetailMode = Data.Config.RowDetailMode;
 
-        //#if TRACE
-        //            VNC.Log.Trace15("Exit", Common.LOG_APPNAME, CLASS_BASE_ERRORNUMBER + 2, startTicks);
-        //#endif
+//#if TRACE
+//            VNC.Log.Trace15("Exit", Common.LOG_CATEGORY, CLASS_BASE_ERRORNUMBER + 2, startTicks);
+//#endif
         //}
 
         #endregion
@@ -364,7 +364,7 @@ namespace WPFBinding101.Presentation.Views
 
             ////foreach (var item in loadedAssemblies)
             ////{
-            ////    AppLog.Info(item.FullName, LOG_APPNAME);
+            ////    AppLog.Info(item.FullName, LOG_CATEGORY);
             ////}
 
             ////System.Reflection.Assembly vncAssembly = System.Reflection.Assembly.GetAssembly(Type.GetType("VNC.WPFUserControls.wucUIOne"));
@@ -521,16 +521,16 @@ namespace WPFBinding101.Presentation.Views
 
         private void SetTitle2(object sender, EventArgs e)
         {
-            //    wucDXBase uc = sender as wucDXBase;
+        //    wucDXBase uc = sender as wucDXBase;
 
-            //    if (uc != null && !string.IsNullOrEmpty(uc.Title))
-            //    {
-            //        this.Title = string.Format("VNCCodeCommandConsole: {0}", uc.Title);
-            //    }
-            //    else
-            //    {
-            //        this.Title = "VNCCodeCommandConsole";
-            //    }
+        //    if (uc != null && !string.IsNullOrEmpty(uc.Title))
+        //    {
+        //        this.Title = string.Format("VNCCodeCommandConsole: {0}", uc.Title);
+        //    }
+        //    else
+        //    {
+        //        this.Title = "VNCCodeCommandConsole";
+        //    }
         }
 
         private void ShowUserControl(UserControl control)

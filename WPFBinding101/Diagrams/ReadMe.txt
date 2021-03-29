@@ -1,3 +1,3 @@
-﻿WPFBinding101\Diagrams\
+﻿\Diagrams\
 
 Notes for using this template

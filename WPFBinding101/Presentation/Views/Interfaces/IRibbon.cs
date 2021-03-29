@@ -1,6 +1,6 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.Views
+namespace .Presentation.Views
 {
     public interface IRibbon : IView
     {

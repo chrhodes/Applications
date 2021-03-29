@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\Views\
+﻿\Presentation\Views\
 
 Notes for using this template

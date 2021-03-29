@@ -1,3 +1,3 @@
-﻿WPFBinding101\DomainServices\ServicesMock
+﻿\DomainServices\ServicesMock
 
 Notes for using this template

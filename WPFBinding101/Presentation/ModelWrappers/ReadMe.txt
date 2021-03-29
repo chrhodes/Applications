@@ -1,3 +1,3 @@
-﻿WPFBinding101\Presentation\ModelWrappers\
+﻿\Presentation\ModelWrappers\
 
 Notes for using this template

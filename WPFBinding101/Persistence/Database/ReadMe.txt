@@ -1,3 +1,3 @@
-﻿WPFBinding101\Persistence\Data\
+﻿\Persistence\Data\
 
 Notes for using this template

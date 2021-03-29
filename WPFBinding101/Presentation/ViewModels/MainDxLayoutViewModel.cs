@@ -3,12 +3,12 @@
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace WPFBinding101.Presentation.ViewModels
+namespace .Presentation.ViewModels
 {
     public class MainDxLayoutViewModel : ViewModelBase
     {
-        private string _title = "WPFBinding101 - MainWindowDxLayout";
-
+        private string _title = " - MainWindowDxLayout";
+        
         public string Title
         {
             get => _title;
@@ -20,7 +20,7 @@ namespace WPFBinding101.Presentation.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         // ObservableCollection notifies databinding when collection changes
         // because it implements INotifyCollectionChanged
 
@@ -33,9 +33,9 @@ namespace WPFBinding101.Presentation.ViewModels
         //public IMaterialDataService _materialDataService { get; set; }
         public MainDxLayoutViewModel()
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         //public MainWindowDxViewModel(

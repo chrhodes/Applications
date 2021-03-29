@@ -1,6 +1,6 @@
 using Prism.Commands;
 
-namespace WPFBinding101.Core
+namespace .Core
 {
     public class ApplicationCommands
     {
