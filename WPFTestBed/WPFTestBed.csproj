@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net4.8</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  
+  <ItemGroup>
+      <PackageReference Include="DevExpress.Wpf.Core" Version="19.2.6" />
+      <PackageReference Include="DevExpress.Wpf.Grid" Version="19.2.6" />
+      <PackageReference Include="DevExpress.Wpf.Layout" Version="19.2.6" />
+      <PackageReference Include="DevExpress.Wpf.Navigation" Version="19.2.6" />
+      <PackageReference Include="DevExpress.Wpf.Themes.MetropolisDark" Version="19.2.6" />
+      <PackageReference Include="DevExpress.Wpf.Themes.MetropolisLight" Version="19.2.6" />      
+        <PackageReference Include="VNC.Core" Version="1.0.0" />
+   </ItemGroup>
+
+    <ItemGroup>
+        <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
+        <Reference Include="System.Web" />
+    </ItemGroup>
+
+</Project>

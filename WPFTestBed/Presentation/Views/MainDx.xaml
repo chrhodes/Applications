@@ -1,0 +1,163 @@
+﻿<UserControl
+    x:Class="WPFTestBed.Presentation.Views.MainDx"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="1200"
+    d:DesignStyle="{StaticResource vncDesignStyle}"    
+>
+    
+    <dxlc:LayoutGroup x:Name="layoutControl"
+                        Orientation="Vertical">
+
+        <dxlc:LayoutGroup Header="Configuration"
+	        View="GroupBox" Orientation="Vertical"
+	        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+	        IsCollapsible="True"  IsCollapsed="False">
+
+            <!--<local:SelectedShapesInfo />-->
+            <dxlc:LayoutGroup
+                	View="Group" Orientation="Horizontal" VerticalAlignment="Top">
+                <dxe:TextEdit Text="{Binding SelectedShapeCount}"
+                              HorizontalAlignment="Left"
+    	                      ToolTip="# Shapes Selected" />
+
+                <dxe:TextEdit Text="{Binding Message}"
+    	              ToolTip="What you need to do to get good selection" />
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup
+                View="Group"  Orientation="Vertical"
+                Style="{StaticResource ConfigurationLayoutGroup}" >
+
+                <!--<ContentControl x:Name="ssSectionUserControl" />-->
+
+                <dxlc:LayoutControl 
+    	            View="Group" Orientation="Vertical">
+
+                    <dxlc:LayoutGroup 
+        	            View="Group" Orientation="Vertical" >
+
+                        <dxg:GridControl x:Name="dgW" 
+                            AutoGenerateColumns="AddNew" 
+                            EnableSmartColumnsGeneration="True"
+                            ItemsSource="{Binding Rows}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                            MinHeight="300">
+                            <dxg:GridControl.View>
+                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+
+                        <dxlc:LayoutGroup 
+                            View="Group" Orientation="Horizontal"
+                            DataContext="{Binding SelectedItem}">
+
+                            <dxlc:LayoutGroup 
+                	            View="Group" Orientation="Vertical" >
+
+                                <dxlc:LayoutItem Label="Name">
+                                    <dxe:TextEdit Text="{Binding Name}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Label">
+                                    <dxe:TextEdit Text="{Binding Label}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Prompt">
+                                    <dxe:TextEdit Text="{Binding Prompt}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Type">
+                                    <dxe:TextEdit Text="{Binding Type}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Label">
+                                    <dxe:TextEdit Text="{Binding Format}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem Label="Value">
+                                    <dxe:TextEdit Text="{Binding Value}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                            </dxlc:LayoutGroup>
+
+                            <dxlc:LayoutGroup 
+                                View="Group" Orientation="Vertical" >
+
+                                <dxlc:LayoutItem Label="SortKey">
+                                    <dxe:TextEdit Text="{Binding SortKey}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Invisible">
+                                    <dxe:TextEdit Text="{Binding Invisible}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Ask">
+                                    <dxe:TextEdit Text="{Binding Ask}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="LangID">
+                                    <dxe:TextEdit Text="{Binding LangID}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem Label="Calendar">
+                                    <dxe:TextEdit Text="{Binding Calendar}"
+    	                        ToolTip="tooltip" />
+                                </dxlc:LayoutItem>
+
+                            </dxlc:LayoutGroup>
+
+                        </dxlc:LayoutGroup>
+
+                    </dxlc:LayoutGroup>
+
+                    <dxlc:LayoutItem Label="Export2" LabelPosition="Top">
+                        <dxe:TextEdit Text="{Binding ExportedElement, Mode=TwoWay}"
+    	                    ToolTip="tooltip" />
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutControl>
+
+            </dxlc:LayoutGroup>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Actions"
+	            View="GroupBox" Orientation="Vertical"
+	            VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+	            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutGroup
+                View="Group"  Orientation="Vertical"
+                Style="{StaticResource ActionLayoutGroup}">
+                <Button Content="{Binding LoadButtonContent, FallbackValue='LoadButtonContent'}"
+                        Command="{Binding LoadCurrentSettings}" />
+
+                <Button Content="{Binding UpdateButtonContent, FallbackValue='UpdateButtonContent'}"
+                        Command="{Binding UpdateSettings}" />
+
+                <dxlc:LayoutItem>
+                    <Button
+                		Command="{Binding ExportSettings }"
+                		Content="{Binding ExportSettingsContent, FallbackValue='ExportSettings' }"
+                		ToolTip="{Binding ExportSettingsToolTip, FallbackValue='ExportSettings ToolTip' }" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutGroup>
+</UserControl>
