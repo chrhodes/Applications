@@ -11,14 +11,14 @@ namespace PAEF1.Presentation.Views
 
         public ViewABC(ViewModels.IViewABCViewModel viewModel)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
             InitializeComponent();
 
             ViewModel = viewModel;
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #region IInstanceCount

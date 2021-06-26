@@ -19,11 +19,11 @@ namespace PAEF1.DomainServices
 
         public ToyLookupDataService(Func<PAEF1DbContext> context)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             _contextCreator = context;
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -53,7 +53,7 @@ namespace PAEF1.DomainServices
 
         public async Task<IEnumerable<LookupItem>> GetToyLookupAsync()
         {
-            Int64 startTicks = Log.DOMAINSERVICES("(ToyLookupDataService) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.DOMAINSERVICES("(ToyLookupDataService) Enter", Common.LOG_CATEGORY);
 
             IEnumerable<LookupItem> result;
 
@@ -69,7 +69,7 @@ namespace PAEF1.DomainServices
                   .ToListAsync();
             }
 
-            Log.DOMAINSERVICES("(ToyLookupDataService) Exit", Common.LOG_APPNAME, startTicks);
+            Log.DOMAINSERVICES("(ToyLookupDataService) Exit", Common.LOG_CATEGORY, startTicks);
 
             return result;
         }

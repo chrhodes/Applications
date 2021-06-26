@@ -25,19 +25,19 @@ namespace PAEF1.Presentation.ViewModels
                 IEventAggregator eventAggregator,
                 IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             _CatLookupDataService = CatLookupDataService;
             _DogLookupDataService = DogLookupDataService;
 
             InitializeViewModel();
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_APPNAME, startTicks);
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
         {
-            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("Enter", Common.LOG_CATEGORY);
 
             InstanceCountVM++;
 
@@ -51,7 +51,7 @@ namespace PAEF1.Presentation.ViewModels
             EventAggregator.GetEvent<AfterDetailDeletedEvent>()
                 .Subscribe(AfterDetailDeleted);
 
-            Log.VIEWMODEL("Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -81,7 +81,7 @@ namespace PAEF1.Presentation.ViewModels
 
         private void AfterDetailSaved(AfterDetailSavedEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             switch (args.ViewModelName)
             {
@@ -97,12 +97,12 @@ namespace PAEF1.Presentation.ViewModels
                     throw new System.Exception($"AfterDetailSaved(): ViewModel {args.ViewModelName} not mapped.");
             }
 
-            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             switch (args.ViewModelName)
             {
@@ -118,7 +118,7 @@ namespace PAEF1.Presentation.ViewModels
                     throw new System.Exception($"AfterDetailDeleted(): ViewModel {args.ViewModelName} not mapped.");
             }
 
-            Log.EVENT_HANDLER("Exit", Common.LOG_APPNAME, startTicks);
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -127,7 +127,7 @@ namespace PAEF1.Presentation.ViewModels
 
         public async Task LoadAsync()
         {
-            Int64 startTicks = Log.VIEWMODEL("(NavigationViewModel) Enter", Common.LOG_APPNAME);
+            Int64 startTicks = Log.VIEWMODEL("(NavigationViewModel) Enter", Common.LOG_CATEGORY);
 
             var lookupCats = await _CatLookupDataService.GetCatLookupAsync();
             Cats.Clear();
@@ -154,7 +154,7 @@ namespace PAEF1.Presentation.ViewModels
             //TODO(crhodes)
             // Load more TYPEs as needed here
 
-            Log.VIEWMODEL("(NavigationViewModel) Exit", Common.LOG_APPNAME, startTicks);
+            Log.VIEWMODEL("(NavigationViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

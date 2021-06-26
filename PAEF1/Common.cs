@@ -10,7 +10,7 @@ namespace PAEF1
     public class Common
     {
         public const string PROJECT_NAME = "PAEF1";
-        public const string LOG_APPNAME = "PAEF1";
+        public const string LOG_CATEGORY = "PAEF1";
 
         public const string cCONFIG_FILE = @"C:\temp\PAEF1_Config.xml";
 
