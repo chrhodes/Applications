@@ -7,6 +7,7 @@ using PAEF1.Animals.Presentation.ViewModels;
 using PAEF1.DomainServices;
 
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -21,9 +22,9 @@ namespace PAEF1.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public CombinedNavigationViewModel(
-                ICatLookupDataService CatLookupDataService, IDogLookupDataService DogLookupDataService,
-                IEventAggregator eventAggregator,
-                IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            ICatLookupDataService CatLookupDataService, IDogLookupDataService DogLookupDataService,
+            IEventAggregator eventAggregator,
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
@@ -137,7 +138,7 @@ namespace PAEF1.Presentation.ViewModels
                 Cats.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
                     nameof(CatDetailViewModel),
-                    EventAggregator, MessageDialogService));
+                    EventAggregator, DialogService));
             }
 
             var lookupDogs = await _DogLookupDataService.GetDogLookupAsync();
@@ -148,7 +149,7 @@ namespace PAEF1.Presentation.ViewModels
                 Dogs.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
                     nameof(DogDetailViewModel),
-                    EventAggregator, MessageDialogService));
+                    EventAggregator, DialogService));
             }
 
             //TODO(crhodes)

@@ -12,6 +12,7 @@ using PAEF1.Presentation.ModelWrappers;
 
 using Prism.Commands;
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.DomainServices;
@@ -29,7 +30,7 @@ namespace PAEF1.Presentation.ViewModels
             ICatDataService CatDataService,
             IToyLookupDataService ToyLookupDataService,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
@@ -172,17 +173,31 @@ namespace PAEF1.Presentation.ViewModels
         {
             Int64 startTicks = Log.VIEWMODEL($"(CatDetailViewModel) Enter Id:({Cat.Id})", Common.LOG_CATEGORY);
 
-            var result = MessageDialogService.ShowOkCancelDialog(
-                "Do you really want to delete the Cat?", "Question");
+            //var result = MessageDialogService.ShowOkCancelDialog(
+            //    "Do you really want to delete the Cat?", "Question");
 
-            if (result == MessageDialogResult.OK)
+            //if (result == MessageDialogResult.OK)
+            //{
+            //    _CatDataService.Remove(Cat.Model);
+
+            //    await _CatDataService.UpdateAsync();
+
+            //    PublishAfterDetailDeletedEvent(Cat.Id);
+            //}
+
+            var message = "Do you really want to delete the Cat ?";
+    
+            DialogService.Show("OkCancelDialog", new DialogParameters($"message={message}"), async r =>
             {
-                _CatDataService.Remove(Cat.Model);
+                if (r.Result == ButtonResult.OK)
+                {
+                    _CatDataService.Remove(Cat.Model);
 
-                await _CatDataService.UpdateAsync();
+                    await _CatDataService.UpdateAsync();
 
-                PublishAfterDetailDeletedEvent(Cat.Id);
-            }
+                    PublishAfterDetailDeletedEvent(Cat.Id);
+                }
+            });
 
             Log.VIEWMODEL("(CatDetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }

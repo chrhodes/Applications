@@ -12,6 +12,7 @@ using PAEF1.Animals.Presentation.ModelWrappers;
 
 using Prism.Commands;
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.DomainServices;
@@ -29,7 +30,7 @@ namespace PAEF1.Animals.Presentation.ViewModels
             IDogDataService DogDataService,
             IBoneLookupDataService BoneLookupDataService,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -172,17 +173,32 @@ namespace PAEF1.Animals.Presentation.ViewModels
         {
             Int64 startTicks = Log.VIEWMODEL($"(DogDetailViewModel) Enter Id:({Dog.Id})", Common.LOG_APPNAME);
 
-            var result = MessageDialogService.ShowOkCancelDialog(
-                "Do you really want to delete the Dog?", "Question");
+            //var result = MessageDialogService.ShowOkCancelDialog(
+            //    "Do you really want to delete the Dog?", "Question");
 
-            if (result == MessageDialogResult.OK)
+            //if (result == MessageDialogResult.OK)
+            //{
+            //    _DogDataService.Remove(Dog.Model);
+
+            //    await _DogDataService.UpdateAsync();
+
+            //    PublishAfterDetailDeletedEvent(Dog.Id);
+            //}
+
+
+            var message = "Do you really want to delete the Cat ?";
+
+            DialogService.Show("OkCancelDialog", new DialogParameters($"message={message}"), async r =>
             {
-                _DogDataService.Remove(Dog.Model);
+                if (r.Result == ButtonResult.OK)
+                {
+                    _DogDataService.Remove(Dog.Model);
 
-                await _DogDataService.UpdateAsync();
+                    await _DogDataService.UpdateAsync();
 
-                PublishAfterDetailDeletedEvent(Dog.Id);
-            }
+                    PublishAfterDetailDeletedEvent(Dog.Id);
+                }
+            });
 
             Log.VIEWMODEL("(DogDetailViewModel) Exit", Common.LOG_APPNAME, startTicks);
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PAEF1.Animals.DomainServices;
 
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -20,9 +21,9 @@ namespace PAEF1.Animals.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public DogNavigationViewModel(
-                IDogLookupDataService DogLookupDataService,
-                IEventAggregator eventAggregator,
-                IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDogLookupDataService DogLookupDataService,
+            IEventAggregator eventAggregator,
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -125,7 +126,7 @@ namespace PAEF1.Animals.Presentation.ViewModels
                 Dogs.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
                     nameof(DogDetailViewModel),
-                    EventAggregator, MessageDialogService));
+                    EventAggregator, DialogService));
             }
 
             Log.VIEWMODEL("(DogNavigationViewModel) Exit", Common.LOG_APPNAME, startTicks);

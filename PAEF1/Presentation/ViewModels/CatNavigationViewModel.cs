@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PAEF1.DomainServices;
 
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -20,9 +21,9 @@ namespace PAEF1.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public CatNavigationViewModel(
-                ICatLookupDataService CatLookupDataService,
-                IEventAggregator eventAggregator,
-                IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            ICatLookupDataService CatLookupDataService,
+            IEventAggregator eventAggregator,
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
@@ -125,7 +126,7 @@ namespace PAEF1.Presentation.ViewModels
                 Cats.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
                     nameof(CatDetailViewModel),
-                    EventAggregator, MessageDialogService));
+                    EventAggregator, DialogService));
             }
 
             Log.VIEWMODEL("(CatNavigationViewModel) Exit", Common.LOG_CATEGORY, startTicks);

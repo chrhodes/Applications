@@ -12,6 +12,8 @@ using Prism.Regions;
 using Unity;
 
 using VNC;
+using VNC.Core.Presentation.ViewModels;
+using VNC.Core.Presentation.Views;
 
 namespace PAEF1
 {
@@ -76,6 +78,7 @@ namespace PAEF1
             // Play around with Dialog Service
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>("NotificationDialog");
+            containerRegistry.RegisterDialog<OkCancelDialog, OkCancelDialogViewModel>("OkCancelDialog");
 
             Log.MODULE("Exit", Common.LOG_CATEGORY, startTicks);
         }

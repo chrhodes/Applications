@@ -11,6 +11,7 @@ using PAEF1.Presentation.ModelWrappers;
 
 using Prism.Commands;
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -26,7 +27,7 @@ namespace PAEF1.Presentation.ViewModels
         public ToyDetailViewModel(
             IToyDataService ToyDataService,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
@@ -182,9 +183,16 @@ namespace PAEF1.Presentation.ViewModels
                 // ex = ex.InnerException;
                 // }
 
-                MessageDialogService.ShowInfoDialog(
-                    "Error while saving the Toys, " +
-                    "the data will be reloaded.  Details: " + ex);
+                //MessageDialogService.ShowInfoDialog(
+                //    "Error while saving the Toys, " +
+                //    "the data will be reloaded.  Details: " + ex);
+
+                var message = "Error while saving the Toys, the data will be reloaded.  Details: " + ex;
+
+                DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                {
+                }, "Alert");
+
                 await LoadAsync(Id);
             }
 
@@ -219,9 +227,25 @@ namespace PAEF1.Presentation.ViewModels
 
             if (isReferenced)
             {
-                MessageDialogService.ShowInfoDialog(
-                    $"The Cat ({SelectedToy.Name})" +
-                    " can't be removed;  It is referenced by at least one Cat");
+                var message = $"The Toy ({SelectedToy.Name})" +
+                    " can't be removed;  It is referenced by at least one Cat";
+
+                //MessageDialogService.ShowInfoDialog(
+                //    $"The Cat ({SelectedToy.Name})" +
+                //    " can't be removed;  It is referenced by at least one Cat");
+
+                DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                {
+                    //if (r.Result == ButtonResult.None)
+                    //    Message = "Result is None";
+                    //else if (r.Result == ButtonResult.OK)
+                    //    Message = "Result is OK";
+                    //else if (r.Result == ButtonResult.Cancel)
+                    //    Message = "Result is Cancel";
+                    //else
+                    //    Message = "I Don't know what you did!?";
+                });
+
                 return;
             }
 

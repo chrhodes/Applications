@@ -6,6 +6,7 @@ using System.Windows.Input;
 
 using Prism.Commands;
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -25,7 +26,7 @@ namespace PAEF1.Animals.Presentation.ViewModels
             Func<IDogDetailViewModel> DogDetailViewModelCreator,
             Func<IBoneDetailViewModel> BoneDetailViewModelCreator,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -182,8 +183,16 @@ namespace PAEF1.Animals.Presentation.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
-                        "It may have been deleted by another user.  Updating Navigation");
+                    //MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
+                    //    "It may have been deleted by another user.  Updating Navigation");
+
+                    var message = $"Cannot load the entity ({ex})" +
+                        "It may have been deleted by another user.  Updating Navigation";
+
+                    DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                    {
+                    });
+
                     await NavigationViewModel.LoadAsync();
                     return;
                 }

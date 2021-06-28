@@ -11,6 +11,7 @@ using PAEF1.Animals.Presentation.ModelWrappers;
 
 using Prism.Commands;
 using Prism.Events;
+using Prism.Services.Dialogs;
 
 using VNC;
 using VNC.Core.Events;
@@ -26,7 +27,7 @@ namespace PAEF1.Animals.Presentation.ViewModels
         public BoneDetailViewModel(
             IBoneDataService BoneDataService,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_APPNAME);
 
@@ -182,9 +183,17 @@ namespace PAEF1.Animals.Presentation.ViewModels
                 // ex = ex.InnerException;
                 // }
 
-                MessageDialogService.ShowInfoDialog(
-                    "Error while saving the Bones, " +
-                    "the data will be reloaded.  Details: " + ex);
+                //MessageDialogService.ShowInfoDialog(
+                //    "Error while saving the Bones, " +
+                //    "the data will be reloaded.  Details: " + ex);
+
+                var message = "Error while saving the Bones, " +
+                    "the data will be reloaded.  Details: " + ex;
+
+                DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                {
+                });
+
                 await LoadAsync(Id);
             }
 
@@ -219,9 +228,17 @@ namespace PAEF1.Animals.Presentation.ViewModels
 
             if (isReferenced)
             {
-                MessageDialogService.ShowInfoDialog(
-                    $"The Dog ({SelectedBone.Name})" +
-                    " can't be removed;  It is referenced by at least one Dog");
+                //MessageDialogService.ShowInfoDialog(
+                //    $"The Dog ({SelectedBone.Name})" +
+                //    " can't be removed;  It is referenced by at least one Dog");
+
+                var message = $"The Dog ({SelectedBone.Name})" +
+                    " can't be removed;  It is referenced by at least one Dog";
+
+                DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                {
+                });
+
                 return;
             }
 

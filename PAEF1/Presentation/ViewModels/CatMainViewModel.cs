@@ -23,12 +23,11 @@ namespace PAEF1.Presentation.ViewModels
         IDialogService _dialogService;
 
         public CatMainViewModel(
-            IDialogService dialogService,
             ICatNavigationViewModel CatNavigationViewModel,
             Func<ICatDetailViewModel> CatDetailViewModelCreator,
             Func<IToyDetailViewModel> ToyDetailViewModelCreator,
             IEventAggregator eventAggregator,
-            IMessageDialogService messageDialogService) : base(eventAggregator, messageDialogService)
+            IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
@@ -205,8 +204,24 @@ namespace PAEF1.Presentation.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
-                        "It may have been deleted by another user.  Updating Navigation");
+                    // TODO(crhodes)
+                    // Update to use Dialog Service
+
+                    //MessageDialogService.ShowInfoDialog($"Cannot load the entity ({ex})" +
+                    //    "It may have been deleted by another user.  Updating Navigation");
+                    var message = $"Cannot load the entity ({ex}) It may have been deleted by another user";
+
+                    _dialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                    {
+                        if (r.Result == ButtonResult.None)
+                            Message = "Result is None";
+                        else if (r.Result == ButtonResult.OK)
+                            Message = "Result is OK";
+                        else if (r.Result == ButtonResult.Cancel)
+                            Message = "Result is Cancel";
+                        else
+                            Message = "I Don't know what you did!?";
+                    });
 
                     await NavigationViewModel.LoadAsync();
 
