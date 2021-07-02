@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -18,7 +17,6 @@ using VNC;
 using VNC.Core.DomainServices;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
-using VNC.Core.Services;
 
 namespace PAEF1.Presentation.ViewModels
 {
@@ -186,8 +184,14 @@ namespace PAEF1.Presentation.ViewModels
             //}
 
             var message = "Do you really want to delete the Cat ?";
-    
-            DialogService.Show("OkCancelDialog", new DialogParameters($"message={message}"), async r =>
+
+            var dialogParameters = new DialogParameters();
+            dialogParameters.Add("message", message);
+            dialogParameters.Add("title", "Approve Deletion");
+            dialogParameters.Add("okcontent", "Yes");
+            dialogParameters.Add("cancelcontent", "No");
+
+            DialogService.Show("OkCancelDialog", dialogParameters, async r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {

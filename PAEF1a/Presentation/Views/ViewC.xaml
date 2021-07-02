@@ -1,0 +1,53 @@
+﻿<vncmvvm:ViewBase
+    x:Class="PAEF1a.Presentation.Views.ViewC"
+    x:Name="thisViewC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:local="clr-namespace:PAEF1a.Presentation.Views"
+    
+    xmlns:views="clr-namespace:PAEF1a.Presentation.Views"
+    xmlns:viewModels="clr-namespace:PAEF1a.Presentation.ViewModels"
+    xmlns:core="clr-namespace:PAEF1a.Core"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    
+    mc:Ignorable="d"
+    d:DesignHeight="100" d:DesignWidth="200"
+    d:DesignStyle="{StaticResource vncDesignStyle}" 
+>
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+    <!--xmlns:core="clr-namespace:PAEF1a.Core;assembly=PAEF1a.Core"-->
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <TextBlock Text="ViewC" />
+                <TextBlock Text="{Binding MessageC}" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisViewC, Path=InstanceCountV}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="VM:" />
+                    <Label Content="{Binding InstanceCountVM}" />
+                </StackPanel>
+            </StackPanel>          
+        </StackPanel> 
+    </Grid>
+    
+</vncmvvm:ViewBase>

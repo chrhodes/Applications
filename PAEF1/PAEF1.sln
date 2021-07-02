@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PAEF1", "PAEF1.csproj", "{F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PAEF1.Core", "..\PAEF1.Core\PAEF1.Core.csproj", "{88035E7E-231B-4EE1-BB90-00E154B95EFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAEF1.Animals", "..\PAEF1.Animals\PAEF1.Animals.csproj", "{7FA78808-65A7-4FFE-971F-E798BA058C06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PAEF1.Animals", "..\PAEF1.Animals\PAEF1.Animals.csproj", "{7FA78808-65A7-4FFE-971F-E798BA058C06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VNC.Core", "..\..\VNC\VNC.Core\VNC.Core.csproj", "{F6B4B577-0298-468C-9A24-6CCD59C904D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7FA78808-65A7-4FFE-971F-E798BA058C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA78808-65A7-4FFE-971F-E798BA058C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA78808-65A7-4FFE-971F-E798BA058C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B4B577-0298-468C-9A24-6CCD59C904D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B4B577-0298-468C-9A24-6CCD59C904D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B4B577-0298-468C-9A24-6CCD59C904D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B4B577-0298-468C-9A24-6CCD59C904D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -213,14 +213,6 @@ namespace PAEF1.Presentation.ViewModels
 
                     _dialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
                     {
-                        if (r.Result == ButtonResult.None)
-                            Message = "Result is None";
-                        else if (r.Result == ButtonResult.OK)
-                            Message = "Result is OK";
-                        else if (r.Result == ButtonResult.Cancel)
-                            Message = "Result is Cancel";
-                        else
-                            Message = "I Don't know what you did!?";
                     });
 
                     await NavigationViewModel.LoadAsync();

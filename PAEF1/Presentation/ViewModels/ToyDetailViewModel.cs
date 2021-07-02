@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-using PAEF1.Domain;
 using PAEF1.DomainServices;
 using PAEF1.Presentation.ModelWrappers;
 
@@ -14,9 +13,7 @@ using Prism.Events;
 using Prism.Services.Dialogs;
 
 using VNC;
-using VNC.Core.Events;
 using VNC.Core.Mvvm;
-using VNC.Core.Services;
 
 namespace PAEF1.Presentation.ViewModels
 {
@@ -189,9 +186,13 @@ namespace PAEF1.Presentation.ViewModels
 
                 var message = "Error while saving the Toys, the data will be reloaded.  Details: " + ex;
 
-                DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
+                var dialogParameters = new DialogParameters();
+                dialogParameters.Add("message", message);
+                dialogParameters.Add("title", "Alert");
+
+                DialogService.Show("NotificationDialog", dialogParameters, r =>
                 {
-                }, "Alert");
+                });
 
                 await LoadAsync(Id);
             }

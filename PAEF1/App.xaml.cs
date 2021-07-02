@@ -10,7 +10,8 @@ using Prism.Regions;
 using Prism.Unity;
 
 using VNC;
-using VNC.Core.Services;
+using VNC.Core.Presentation.ViewModels;
+using VNC.Core.Presentation.Views;
 
 namespace PAEF1
 {
@@ -25,9 +26,12 @@ namespace PAEF1
             // and the first few log messages are missed.
             // NB.  All are properly recored in the log file.
 
-            Int64 startTicks = Log.APPLICATION_START("App()", Common.LOG_CATEGORY);
+            Int64 startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
 
-            Thread.Sleep(250);
+            Thread.Sleep(150);
+
+            Log.APPLICATION_START("App()", Common.LOG_CATEGORY, startTicks);
+
 
             Log.APPLICATION_START(String.Format("Exit"), Common.LOG_CATEGORY, startTicks);
         }
@@ -93,7 +97,8 @@ namespace PAEF1
             // AddressDataService2 has a constructor that takes a CustomPoolAndSpaDbContext.
 
             //containerRegistry.RegisterSingleton<ICatLookupDataService, CatLookupDataService>();
-            containerRegistry.Register<IMessageDialogService, MessageDialogService>();
+            containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>("NotificationDialog");
+            containerRegistry.RegisterDialog<OkCancelDialog, OkCancelDialogViewModel>("OkCancelDialog");
 
             // Add the new UI elements
 

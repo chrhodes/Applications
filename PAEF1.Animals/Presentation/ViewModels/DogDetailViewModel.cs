@@ -186,9 +186,13 @@ namespace PAEF1.Animals.Presentation.ViewModels
             //}
 
 
-            var message = "Do you really want to delete the Cat ?";
+            var message = "Do you really want to delete the Dog ?";
 
-            DialogService.Show("OkCancelDialog", new DialogParameters($"message={message}"), async r =>
+            var dialogParameters = new DialogParameters();
+            dialogParameters.Add("message", message);
+            dialogParameters.Add("title", "Approve Deletion");
+
+            DialogService.Show("OkCancelDialog", dialogParameters, async r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {

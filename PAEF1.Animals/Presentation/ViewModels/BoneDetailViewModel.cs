@@ -190,6 +190,10 @@ namespace PAEF1.Animals.Presentation.ViewModels
                 var message = "Error while saving the Bones, " +
                     "the data will be reloaded.  Details: " + ex;
 
+                var dialogParameters = new DialogParameters();
+                dialogParameters.Add("message", message);
+                dialogParameters.Add("title", "Approve Deletion");
+
                 DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
                 {
                 });
