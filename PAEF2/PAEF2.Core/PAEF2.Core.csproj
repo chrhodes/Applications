@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Prism.Core" Version="8.1.97" />
+        <PackageReference Include="VNC.Core" Version="2.0.0" />
+    </ItemGroup>
+  
+    <ItemGroup>
+        <ProjectReference Include="..\PAEF2.Domain\PAEF2.Domain.csproj" />
+    </ItemGroup>  
+  
+</Project>

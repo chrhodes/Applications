@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+        <TargetFrameworks>net5.0-windows;net48</TargetFrameworks>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="System.ComponentModel.DataAnnotations" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="VNC.Core" Version="2.0.0" />
+    </ItemGroup>
+
+</Project>

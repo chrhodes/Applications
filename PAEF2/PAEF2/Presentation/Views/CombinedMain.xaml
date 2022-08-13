@@ -1,0 +1,115 @@
+﻿<vncmvvm:ViewBase
+    x:Class="PAEF2.Presentation.Views.CombinedMain"
+    x:Name="thisCombinedMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:local="clr-namespace:PAEF2.Presentation.Views"
+
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:views="clr-namespace:PAEF2.Presentation.Views"
+    xmlns:viewModels="clr-namespace:PAEF2.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:PAEF2.Core;assembly=PAEF2.Core"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Background="{StaticResource CombinedMainBackground}"
+
+    d:DesignWidth="800" d:DesignHeight="450" 
+    d:DesignStyle="{StaticResource vncDesignStyleUC}"
+>
+    <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="UserControl"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+    
+    <!-- d:DesignWidth="400" d:DesignHeight="400" -->
+
+    <UserControl.Resources>
+
+        <!-- These are implicit DataTemplates -->
+        <DataTemplate DataType="{x:Type viewModels:CarDetailViewModel}">
+            <views:CarDetail />
+        </DataTemplate>
+
+        <!-- <DataTemplate DataType="{x:Type viewModels:TYPEDetailViewModel}"> -->
+            <!-- <views:TYPEDetail /> -->
+        <!-- </DataTemplate> -->
+
+        <!-- <DataTemplate DataType="{x:Type viewModels:ITEMDetailViewModel}"> -->
+            <!-- <views:MeetingDetail /> -->
+        <!-- </DataTemplate> -->
+
+        <DataTemplate DataType="{x:Type viewModels:DoorDetailViewModel}">
+            <views:DoorDetail />
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.ColumnSpan="2" FontSize="16">
+            <MenuItem Header="Create">
+                <MenuItem Header="Add Car" Command="{Binding CreateNewDetailCommand}"
+                          CommandParameter="{x:Type viewModels:CarDetailViewModel}" />
+                <!-- <MenuItem Header="Add TYPE" Command="{Binding CreateNewDetailCommand}" -->
+                          <!-- CommandParameter="{x:Type viewModels:TYPEDetailViewModel}" /> -->
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Door"
+                            Command="{Binding OpenSingleDetailViewCommand}"
+                            CommandParameter="{x:Type viewModels:DoorDetailViewModel}" />
+            </MenuItem>
+        </Menu>
+
+        <ContentControl Grid.Row="1" Grid.Column="0"
+                        prism:RegionManager.RegionName="{x:Static core:RegionNames.CombinedNavigationRegion}"
+                        DataContext="{Binding NavigationViewModel}" />
+
+        <TabControl Grid.Row="1" Grid.Column="1"
+                    ItemsSource="{Binding DetailViewModels}"
+                    SelectedItem="{Binding SelectedDetailViewModel, Mode=TwoWay}">
+            <TabControl.ItemTemplate>
+
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Text="*" Visibility="{Binding HasChanges,
+                            Converter={StaticResource booleanToVisibilityConverter}}" />
+                        <Button Command="{Binding CloseDetailViewCommand}"
+                                Content="x" Style="{StaticResource CloseTabButtonStyle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
+
+        <!-- This is useful for debugging V VM constructor issues -->
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="V:" />
+                <Label Content="{Binding ElementName=thisCombinedMain, Path=InstanceCountV}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="VM:" />
+                <Label Content="{Binding InstanceCountVM}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</vncmvvm:ViewBase>

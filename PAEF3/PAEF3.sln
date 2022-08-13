@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAEF3", "PAEF3\PAEF3.csproj", "{D558B76D-9355-430A-A3A3-FDC19D78A3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAEF3.Core", "PAEF3.Core\PAEF3.Core.csproj", "{265F1D55-DA96-421D-AC72-1EF8A25689E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAEF3.Domain", "PAEF3.Domain\PAEF3.Domain.csproj", "{A0971C04-C635-4FE3-87BD-61CA82E09A8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D558B76D-9355-430A-A3A3-FDC19D78A3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D558B76D-9355-430A-A3A3-FDC19D78A3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D558B76D-9355-430A-A3A3-FDC19D78A3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D558B76D-9355-430A-A3A3-FDC19D78A3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265F1D55-DA96-421D-AC72-1EF8A25689E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265F1D55-DA96-421D-AC72-1EF8A25689E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265F1D55-DA96-421D-AC72-1EF8A25689E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265F1D55-DA96-421D-AC72-1EF8A25689E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0971C04-C635-4FE3-87BD-61CA82E09A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0971C04-C635-4FE3-87BD-61CA82E09A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0971C04-C635-4FE3-87BD-61CA82E09A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0971C04-C635-4FE3-87BD-61CA82E09A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DF849EC-1E02-46A1-8830-91B763AB0AA0}
+	EndGlobalSection
+EndGlobal
