@@ -35,32 +35,32 @@ namespace PAEF2.Persistence.Data.Migrations
             //  Use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            context.CarsSet.AddOrUpdate(
+            context.DogsSet.AddOrUpdate(
                 i => i.Id,
-                new Domain.Car
+                new Domain.Dog
                 {
                     Id = 1,
-                    FieldString = "Car1",
+                    FieldString = "Dog1",
                     FieldInt = 1,
                     FieldSingle = 1.1f,
                     FieldDouble = 11.11,
                     FieldDate = new DateTime(2001, 1, 1),
                     DateCreated = DateTime.Now
                 },
-                new Domain.Car
+                new Domain.Dog
                 {
                     Id = 2,
-                    FieldString = "Car2",
+                    FieldString = "Dog2",
                     FieldInt = 2,
                     FieldSingle = 2.2f,
                     FieldDouble = 22.22,
                     FieldDate = new DateTime(2002, 2, 2),
                     DateCreated = DateTime.Now
                 },
-                new Domain.Car
+                new Domain.Dog
                 {
                     Id = 3,
-                    FieldString = "Car3",
+                    FieldString = "Dog3",
                     FieldInt = 3,
                     FieldSingle = 3.3f,
                     FieldDouble = 33.33,

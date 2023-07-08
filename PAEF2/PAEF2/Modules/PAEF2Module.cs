@@ -57,11 +57,11 @@ namespace PAEF2
             containerRegistry.Register<ICombinedNavigationViewModel, CombinedNavigationViewModel>();
             containerRegistry.RegisterSingleton<ICombinedNavigation, CombinedNavigation>();
 
-            containerRegistry.Register<IDoorDetailViewModel, DoorDetailViewModel>();
-            containerRegistry.RegisterSingleton<IDoorDetail, DoorDetail>();
+            containerRegistry.Register<IBoneDetailViewModel, BoneDetailViewModel>();
+            containerRegistry.RegisterSingleton<IBoneDetail, BoneDetail>();
 
-            containerRegistry.RegisterSingleton<IDoorDataService, DoorDataService>();
-            containerRegistry.RegisterSingleton<IDoorLookupDataService, DoorLookupDataService>();
+            containerRegistry.RegisterSingleton<IBoneDataService, BoneDataService>();
+            containerRegistry.RegisterSingleton<IBoneLookupDataService, BoneLookupDataService>();
 
             // This shows the AutoWire ViewModel in action. 
 

@@ -27,15 +27,15 @@
     <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" />
     <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" />
 
-    <SolidColorBrush x:Key="CarBackground" Color="#00FF00" />    
-    <SolidColorBrush x:Key="CarMainBackground" Color="#10FF10" />
-    <SolidColorBrush x:Key="CarNavigationBackground" Color="#90FF90" />
-    <SolidColorBrush x:Key="CarDetailBackground" Color="#A0FFA0" />
+    <SolidColorBrush x:Key="DogBackground" Color="#00FF00" />    
+    <SolidColorBrush x:Key="DogMainBackground" Color="#10FF10" />
+    <SolidColorBrush x:Key="DogNavigationBackground" Color="#90FF90" />
+    <SolidColorBrush x:Key="DogDetailBackground" Color="#A0FFA0" />
     
-    <SolidColorBrush x:Key="DoorBackground" Color="#F0E040" />
-    <SolidColorBrush x:Key="DoorDetailBackground" Color="#F0E040" />
+    <SolidColorBrush x:Key="BoneBackground" Color="#F0E040" />
+    <SolidColorBrush x:Key="BoneDetailBackground" Color="#F0E040" />
 
-    <SolidColorBrush x:Key="CarMeetingDetailBackground" Color="#F0C040" />
+    <SolidColorBrush x:Key="DogMeetingDetailBackground" Color="#F0C040" />
 
     <SolidColorBrush x:Key="ShellBackground" Color="#C0C0C0" />
     <SolidColorBrush x:Key="RibbonBackground" Color="#A0A0A0" />    

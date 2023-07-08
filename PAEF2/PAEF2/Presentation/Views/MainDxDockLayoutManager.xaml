@@ -101,9 +101,9 @@
 
                                 <!-- Individual LayoutGroups go here (if you use tabs or groups)-->
 
-                                <dxlc:LayoutGroup Header="Car" >
+                                <dxlc:LayoutGroup Header="Dog" >
                                     <Grid>
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.CarMainRegion}" />
+                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.DogMainRegion}" />
                                     </Grid>
                                     <!--<Grid>
                                         <Grid.ColumnDefinitions>
@@ -111,9 +111,9 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <ContentControl Grid.Column="0"
-                                                        prism:RegionManager.RegionName="{x:Static core:RegionNames.CarNavigationRegion}" />
+                                                        prism:RegionManager.RegionName="{x:Static core:RegionNames.DogNavigationRegion}" />
                                         <ContentControl Grid.Column="1"
-                                                        prism:RegionManager.RegionName="{x:Static core:RegionNames.CarDetailRegion}" />
+                                                        prism:RegionManager.RegionName="{x:Static core:RegionNames.DogDetailRegion}" />
                                     </Grid>-->
                                 </dxlc:LayoutGroup>
 
@@ -127,9 +127,9 @@
                                             <!-- <ColumnDefinition /> -->
                                         <!-- </Grid.ColumnDefinitions> -->
                                         <!-- <ContentControl Grid.Column="0"  -->
-                                                        <!-- prism:RegionManager.RegionName="{x:Static core:RegionNames.CarNavigationRegion}" /> -->
+                                                        <!-- prism:RegionManager.RegionName="{x:Static core:RegionNames.DogNavigationRegion}" /> -->
                                         <!-- <ContentControl Grid.Column="1"  -->
-                                                        <!-- prism:RegionManager.RegionName="{x:Static core:RegionNames.CarDetailRegion}" /> -->
+                                                        <!-- prism:RegionManager.RegionName="{x:Static core:RegionNames.DogDetailRegion}" /> -->
                                     <!-- </Grid> -->
                                 <!-- </dxlc:LayoutGroup> -->
 

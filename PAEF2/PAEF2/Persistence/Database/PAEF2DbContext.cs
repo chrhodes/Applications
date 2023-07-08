@@ -20,10 +20,10 @@ namespace PAEF2.Persistence.Data
         // TODO(crhodes)
         // Add additional DbSet<TYPE> as needed.
 
-        public DbSet<Car> CarsSet { get; set; }
-        public DbSet<CarPhoneNumber> CarPhoneNumbersSet { get; set; }
+        public DbSet<Dog> DogsSet { get; set; }
+        public DbSet<DogPhoneNumber> DogPhoneNumbersSet { get; set; }
 
-        public DbSet<Door> DoorsSet { get; set; }
+        public DbSet<Bone> BonesSet { get; set; }
 
         // Name of connection string in Config
 

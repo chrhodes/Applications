@@ -71,8 +71,8 @@
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.CombinedMainRegion}" />
             </dxlc:LayoutGroup>
             
-            <dxlc:LayoutGroup Header="Car" >
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.CarMainRegion}" />
+            <dxlc:LayoutGroup Header="Dog" >
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.DogMainRegion}" />
             </dxlc:LayoutGroup>
 
             <dxlc:LayoutGroup Header="ViewA">

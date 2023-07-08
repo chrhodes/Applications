@@ -15,9 +15,9 @@ namespace PAEF2.Core
         public static string CombinedNavigationRegion = "CombinedNavigationRegion";
         public static string CombinedDetailRegion = "CombinedDetailRegion";
 
-        public static string CarMainRegion = "CarMainRegion";
-        public static string CarNavigationRegion = "CarNavigationRegion";
-        public static string CarDetailRegion = "CarDetailRegion";
+        public static string DogMainRegion = "DogMainRegion";
+        public static string DogNavigationRegion = "DogNavigationRegion";
+        public static string DogDetailRegion = "DogDetailRegion";
 
         public static string ViewARegion = "ViewARegion";
         public static string ViewBRegion = "ViewBRegion";

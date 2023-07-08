@@ -23,8 +23,8 @@ namespace PAEF2.Presentation.ViewModels
         public CombinedMainViewModel(
             ICombinedNavigationViewModel navigationViewModel,
             //Func<ICatDetailViewModel> catDetailViewModelCreator,
-            Func<ICarDetailViewModel> CarDetailViewModelCreator,
-            Func<IDoorDetailViewModel> DoorDetailViewModelCreator,
+            Func<IDogDetailViewModel> DogDetailViewModelCreator,
+            Func<IBoneDetailViewModel> BoneDetailViewModelCreator,
             IEventAggregator eventAggregator,
             IDialogService dialogService) : base(eventAggregator, dialogService)
         {
@@ -32,8 +32,8 @@ namespace PAEF2.Presentation.ViewModels
 
             NavigationViewModel = navigationViewModel;
             //_CatDetailViewModelCreator = catDetailViewModelCreator;
-            _CarDetailViewModelCreator = CarDetailViewModelCreator;
-            _DoorDetailViewModelCreator = DoorDetailViewModelCreator;
+            _DogDetailViewModelCreator = DogDetailViewModelCreator;
+            _BoneDetailViewModelCreator = BoneDetailViewModelCreator;
 
             InitializeViewModel();
 
@@ -80,8 +80,8 @@ namespace PAEF2.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private Func<ICarDetailViewModel> _CarDetailViewModelCreator;
-        private Func<IDoorDetailViewModel> _DoorDetailViewModelCreator;
+        private Func<IDogDetailViewModel> _DogDetailViewModelCreator;
+        private Func<IBoneDetailViewModel> _BoneDetailViewModelCreator;
 
         private IDetailViewModel _selectedDetailViewModel;
 
@@ -143,7 +143,7 @@ namespace PAEF2.Presentation.ViewModels
 
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
-            Int64 startTicks = Log.EVENT_HANDLER($"(CarMainViewModel) Enter Id:({args.Id}(", Common.LOG_CATEGORY);
+            Int64 startTicks = Log.EVENT_HANDLER($"(DogMainViewModel) Enter Id:({args.Id}(", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -158,16 +158,16 @@ namespace PAEF2.Presentation.ViewModels
                     // detailViewModel = (IDetailViewModel)_CatDetailViewModelCreator();
                     // break;
 
-                    case nameof(CarDetailViewModel):
-                        detailViewModel = (IDetailViewModel)_CarDetailViewModelCreator();
+                    case nameof(DogDetailViewModel):
+                        detailViewModel = (IDetailViewModel)_DogDetailViewModelCreator();
                         break;
 
                     //case nameof(MeetingDetailViewModel):
                     //    detailViewModel = _meetingDetailViewModelCreator();
                     //    break;
 
-                    case nameof(DoorDetailViewModel):
-                        detailViewModel = _DoorDetailViewModelCreator();
+                    case nameof(BoneDetailViewModel):
+                        detailViewModel = _BoneDetailViewModelCreator();
                         break;
 
                     // This should not happen anymore withe TYPEEvent
@@ -198,7 +198,7 @@ namespace PAEF2.Presentation.ViewModels
 
             SelectedDetailViewModel = detailViewModel;
 
-            Log.VIEWMODEL("(CarMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
+            Log.VIEWMODEL("(DogMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)

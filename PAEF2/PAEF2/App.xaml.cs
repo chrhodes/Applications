@@ -95,7 +95,7 @@ namespace PAEF2
             //containerRegistry.RegisterSingleton<IAddressDataService, AddressDataService>();
             // AddressDataService2 has a constructor that takes a CustomPoolAndSpaDbContext.
 
-            //containerRegistry.RegisterSingleton<ICarLookupDataService, CarLookupDataService>();
+            //containerRegistry.RegisterSingleton<IDogLookupDataService, DogLookupDataService>();
 
             // Common Dialogs used my most applications.
 
@@ -129,8 +129,8 @@ namespace PAEF2
             Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             //NOTE(crhodes)
-            // Order matters here.  Application depends on types in Car
-            moduleCatalog.AddModule(typeof(CarModule));
+            // Order matters here.  Application depends on types in Dog
+            moduleCatalog.AddModule(typeof(DogModule));
             moduleCatalog.AddModule(typeof(PAEF2Module));
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);

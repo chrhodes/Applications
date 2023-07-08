@@ -20,13 +20,13 @@ namespace PAEF2.Presentation.ViewModels
         #region Constructors, Initialization, and Load
 
         public CombinedNavigationViewModel(
-            ICarLookupDataService CarLookupDataService,
+            IDogLookupDataService DogLookupDataService,
             IEventAggregator eventAggregator,
             IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            _CarLookupDataService = CarLookupDataService;
+            _DogLookupDataService = DogLookupDataService;
 
             InitializeViewModel();
 
@@ -39,7 +39,7 @@ namespace PAEF2.Presentation.ViewModels
 
             InstanceCountVM++;
 
-            Cars = new ObservableCollection<NavigationItemViewModel>();
+            Dogs = new ObservableCollection<NavigationItemViewModel>();
 
             EventAggregator.GetEvent<AfterDetailSavedEvent>()
                 .Subscribe(AfterDetailSaved);
@@ -64,9 +64,9 @@ namespace PAEF2.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private ICarLookupDataService _CarLookupDataService;
+        private IDogLookupDataService _DogLookupDataService;
 
-        public ObservableCollection<NavigationItemViewModel> Cars { get; private set; }
+        public ObservableCollection<NavigationItemViewModel> Dogs { get; private set; }
 
         #endregion
 
@@ -78,12 +78,12 @@ namespace PAEF2.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof(CarDetailViewModel):
-                    AfterDetailSaved(Cars, args);
+                case nameof(DogDetailViewModel):
+                    AfterDetailSaved(Dogs, args);
                     break;
 
-                // case nameof(Car2DetailViewModel):
-                // AfterDetailSaved(Car2s, args);
+                // case nameof(Dog2DetailViewModel):
+                // AfterDetailSaved(Dog2s, args);
                 // break;
 
                 default:
@@ -99,12 +99,12 @@ namespace PAEF2.Presentation.ViewModels
 
             switch (args.ViewModelName)
             {
-                case nameof(CarDetailViewModel):
-                    AfterDetailDeleted(Cars, args);
+                case nameof(DogDetailViewModel):
+                    AfterDetailDeleted(Dogs, args);
                     break;
 
-                // case nameof(Car2DetailViewModel):
-                // AfterDetailDeleted(Car2s, args);
+                // case nameof(Dog2DetailViewModel):
+                // AfterDetailDeleted(Dog2s, args);
                 // break;
 
                 default:
@@ -122,25 +122,25 @@ namespace PAEF2.Presentation.ViewModels
         {
             Int64 startTicks = Log.VIEWMODEL("(NavigationViewModel) Enter", Common.LOG_CATEGORY);
 
-            var lookupCars = await _CarLookupDataService.GetCarLookupAsync();
-            Cars.Clear();
+            var lookupDogs = await _DogLookupDataService.GetDogLookupAsync();
+            Dogs.Clear();
 
-            foreach (var item in lookupCars)
+            foreach (var item in lookupDogs)
             {
-                Cars.Add(
+                Dogs.Add(
                     new NavigationItemViewModel(item.Id, item.DisplayMember,
-                    nameof(CarDetailViewModel),
+                    nameof(DogDetailViewModel),
                     EventAggregator, DialogService));
             }
 
-            // var lookupCar2s = await _Car2LookupDataService.GetCar2LookupAsync();
-            // Car2s.Clear();
+            // var lookupDog2s = await _Dog2LookupDataService.GetDog2LookupAsync();
+            // Dog2s.Clear();
 
-            // foreach (var item in lookupCar2s)
+            // foreach (var item in lookupDog2s)
             // {
-            // Car2s.Add(
+            // Dog2s.Add(
             // new NavigationItemViewModel(item.Id, item.DisplayMember,
-            // nameof(Car2DetailViewModel),
+            // nameof(Dog2DetailViewModel),
             // EventAggregator, DialogService));
             // }
 

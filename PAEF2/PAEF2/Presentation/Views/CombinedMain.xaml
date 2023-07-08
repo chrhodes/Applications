@@ -34,8 +34,8 @@
     <UserControl.Resources>
 
         <!-- These are implicit DataTemplates -->
-        <DataTemplate DataType="{x:Type viewModels:CarDetailViewModel}">
-            <views:CarDetail />
+        <DataTemplate DataType="{x:Type viewModels:DogDetailViewModel}">
+            <views:DogDetail />
         </DataTemplate>
 
         <!-- <DataTemplate DataType="{x:Type viewModels:TYPEDetailViewModel}"> -->
@@ -46,8 +46,8 @@
             <!-- <views:MeetingDetail /> -->
         <!-- </DataTemplate> -->
 
-        <DataTemplate DataType="{x:Type viewModels:DoorDetailViewModel}">
-            <views:DoorDetail />
+        <DataTemplate DataType="{x:Type viewModels:BoneDetailViewModel}">
+            <views:BoneDetail />
         </DataTemplate>
 
     </UserControl.Resources>
@@ -66,15 +66,15 @@
 
         <Menu Grid.ColumnSpan="2" FontSize="16">
             <MenuItem Header="Create">
-                <MenuItem Header="Add Car" Command="{Binding CreateNewDetailCommand}"
-                          CommandParameter="{x:Type viewModels:CarDetailViewModel}" />
+                <MenuItem Header="Add Dog" Command="{Binding CreateNewDetailCommand}"
+                          CommandParameter="{x:Type viewModels:DogDetailViewModel}" />
                 <!-- <MenuItem Header="Add TYPE" Command="{Binding CreateNewDetailCommand}" -->
                           <!-- CommandParameter="{x:Type viewModels:TYPEDetailViewModel}" /> -->
             </MenuItem>
             <MenuItem Header="Edit">
-                <MenuItem Header="Door"
+                <MenuItem Header="Bone"
                             Command="{Binding OpenSingleDetailViewCommand}"
-                            CommandParameter="{x:Type viewModels:DoorDetailViewModel}" />
+                            CommandParameter="{x:Type viewModels:BoneDetailViewModel}" />
             </MenuItem>
         </Menu>
 

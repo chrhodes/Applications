@@ -73,13 +73,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Cars"
+        <GroupBox Header="Dogs"
             Grid.Row="0">
             <ScrollViewer
                 VerticalScrollBarVisibility="Auto"
                 HorizontalScrollBarVisibility="Auto" Background="Black">
                 <ItemsControl
-                    ItemsSource="{Binding Cars}"
+                    ItemsSource="{Binding Dogs}"
                     ItemContainerStyle="{StaticResource NavigationItemContainerStyle}"
                     ItemTemplate="{StaticResource NavigationItemTemplate}" />
             </ScrollViewer>

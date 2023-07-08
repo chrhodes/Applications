@@ -8,6 +8,6 @@ namespace PAEF2.Persistence.Data
     {
         int SaveChanges();
 
-        DbSet<Car> CarsSet { get; set; }
+        DbSet<Dog> DogsSet { get; set; }
     }
 }
